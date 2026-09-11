@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BURBUJAS</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="topbar">
+
+    <div>
+      <h1>T.I.C. I</h1>
+
+      <p>
+        Tecnologías de la Información y la Comunicación I.
+      </p>
+
+    </div>
+
+    <button
+      id="logoutBtn"
+      class="ghost hidden">
+      Salir
+    </button>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <!-- ============================= -->
+    <!-- LOGIN -->
+    <!-- ============================= -->
+
+    <section
+      id="loginSection"
+      class="card login-card">
+
+      <h2>Ingreso</h2>
+
+      <p>
+        Escribe tus datos para comenzar.
+      </p>
+
+
+      <label for="studentName">
+        Nombre completo:
+      </label>
+
+      <input
+        id="studentName"
+        type="text"
+        placeholder="Ej. Ana María García López">
+
+
+      <label for="studentGrade">
+        Grado
+      </label>
+
+      
+      <input
+        id="studentGrade"
+        type="text"
+        placeholder="Ej. 4to Diseño Gráfico">
+
+       
+       <label for="studentCode">
+        Clave
+      </label>
+      
+      <input
+      id="studentCode"
+      type="text"
+      placeholder="Ej. 2">
+
+      <label for="teacherName">
+        Profesor
+      </label>
+
+      <input
+      id="teacherName"
+      type="text"
+      placeholder="Ej. Julian Mendoza.">
+
+    
+      
+
+
+      <button
+        id="enterBtn"
+        class="primary">
+
+        Ingresar
+
+      </button>
+
+
+      <p
+        id="loginError"
+        class="error">
+      </p>
+
+    </section>
+
+
+
+    <section
+      id="dashboardSection"
+      class="hidden">
+
+
+      <div class="welcome card">
+
+        <div>
+
+          <h2 id="welcomeText">
+            ¡Hola!
+          </h2>
+
+          <p id="gradeText"></p>
+
+        </div>
+
+
+        <div class="score-box">
+
+          <span>
+            Mejor puntaje
+          </span>
+
+          <strong id="bestScore">
+            0%
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">
+        Selecciona el tema de tu interés.
+      </h2>
+
+
+      <!-- TAREAS -->
+
+      <div class="subject-grid">
+
+
+      
+
+        <button
+          class="subject-card"
+          data-subject="tarea_1">
+
+          <span class="icon">
+            💻
+          </span>
+
+          <h3>
+            Tarea 1
+          </h3>
+
+          <p>
+            Software y Firmas Digitales.
+          </p>
+
+        </button>
+
+
+
+        <button
+          class="subject-card"
+          data-subject="tarea_2">
+
+          <span class="icon">
+            💻
+          </span>
+
+          <h3>
+            Tarea 2
+          </h3>
+
+          <p>
+            Próximamente.
+          </p>
+
+        </button>
+
+
+
+
+        <button
+          class="subject-card"
+          data-subject="tarea_3">
+
+          <span class="icon">
+            💻
+          </span>
+
+          <h3>
+            Tarea 3
+          </h3>
+
+          <p>
+            Próximamente.
+          </p>
+
+        </button>
+
+
+
+        <!-- TAREA 4 -->
+
+        <button
+          class="subject-card"
+          data-subject="tarea_4">
+
+          <span class="icon">
+            💻
+          </span>
+
+          <h3>
+            Tarea 4
+          </h3>
+
+          <p>
+            Proximamente.
+          </p>
+
+        </button>
+
+      </div>
+
+
+
+      <!-- HISTORIAL -->
+
+      <section class="card history">
+
+        <h3>
+          Últimos resultados
+        </h3>
+
+        <div id="historyList">
+
+          <p class="muted">
+            Aún no hay intentos.
+          </p>
+
+        </div>
+
+      </section>
+
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- MENÚ DE UNA TAREA -->
+    <!-- ============================= -->
+
+    <section
+      id="taskMenuSection"
+      class="card hidden">
+
+
+      <h2 id="taskMenuTitle">
+        Tarea
+      </h2>
+
+
+      <p id="taskMenuDescription">
+        Selecciona qué deseas realizar.
+      </p>
+
+
+
+      <div class="task-options">
+
+
+        <!-- CONTENIDO -->
+
+        <button
+          id="contentBtn"
+          class="option-card">
+
+          <span class="option-icon">
+            📒
+          </span>
+
+          <h3>
+            Contenido
+          </h3>
+
+          <p>
+            Consulta los temas y material de estudio.
+          </p>
+
+        </button>
+
+
+
+        <!-- EJERCICIOS -->
+
+        <button
+          id="exerciseBtn"
+          class="option-card">
+
+          <span class="option-icon">
+            💻
+          </span>
+
+          <h3>
+            Ejercicios
+          </h3>
+
+          <p>
+            Responde las preguntas interactivas.
+          </p>
+
+        </button>
+
+
+      </div>
+
+
+
+      <button
+        id="taskBackBtn"
+        class="ghost">
+
+        Volver
+
+      </button>
+
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- CONTENIDO DE UNA TAREA -->
+    <!-- ============================= -->
+
+    <section
+      id="contentSection"
+      class="hidden">
+
+
+      <div class="card">
+
+
+        <div class="content-header">
+
+
+          <div>
+
+            <p class="subject-label">
+              Contenido
+            </p>
+
+            <h2 id="contentTitle">
+              Contenido
+            </h2>
+
+          </div>
+
+
+
+          <button
+            id="contentBackBtn"
+            class="ghost">
+
+            Volver
+
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!--
+        JavaScript colocará aquí
+        los diferentes temas
+      -->
+
+      <div
+        id="topicsContainer"
+        class="topics-container">
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- EJERCICIOS / PREGUNTAS -->
+    <!-- ============================= -->
+
+    <section
+      id="quizSection"
+      class="card hidden">
+
+
+      <div class="quiz-header">
+
+
+        <div>
+
+          <p
+            id="quizSubject"
+            class="subject-label">
+          </p>
+
+          <h2 id="questionText">
+          </h2>
+
+        </div>
+
+
+
+        <div class="progress-info">
+
+          <span id="questionCounter">
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- BARRA DE PROGRESO -->
+
+      <div class="progress-bar">
+
+        <div id="progressFill">
+        </div>
+
+      </div>
+
+
+
+      <!-- RESPUESTAS -->
+
+      <div
+        id="answersContainer"
+        class="answers">
+      </div>
+
+
+
+      <!-- RETROALIMENTACIÓN -->
+
+      <p
+        id="feedback"
+        class="feedback">
+      </p>
+
+
+
+      <div class="quiz-actions">
+
+
+        <button
+          id="backBtn"
+          class="ghost">
+
+          Volver
+
+        </button>
+
+
+        <button
+          id="nextBtn"
+          class="primary hidden">
+
+          Siguiente
+
+        </button>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- RESULTADOS -->
+    <!-- ============================= -->
+
+    <section
+      id="resultSection"
+      class="card result-card hidden">
+
+
+      <div
+        id="resultEmoji"
+        class="result-emoji">
+
+        🎉
+
+      </div>
+
+
+      <h2>
+        ¡Ejercicio terminado!
+      </h2>
+
+
+      <p id="resultMessage">
+      </p>
+
+
+
+      <div class="final-score">
+
+        <span>
+          Tu resultado
+        </span>
+
+        <strong id="finalScore">
+          0%
+        </strong>
+
+      </div>
+
+
+
+      <div class="result-actions">
+
+
+        <button
+          id="retryBtn"
+          class="primary">
+
+          Intentar de nuevo
+
+        </button>
+
+
+        <button
+          id="homeBtn"
+          class="ghost">
+
+          Volver al inicio
+
+        </button>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ============================= -->
+  <!-- PIE DE PÁGINA -->
+  <!-- ============================= -->
+
+  <footer>
+
+    <p>
+      Josué Alvarez - Ingenieria en Sistemas.
+    </p>
+    <p>Aula Interactiva | BURBUJAS | Version Beta 1.0.1. </p>
+
+  </footer>
+
+
+<img 
+id="logolng"
+src="imagenes/logolng.png"
+alt="logo del colegio"
+style="display: none;"
+>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>
