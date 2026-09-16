@@ -516,6 +516,48 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
   </div>
 
         `
+      },
+
+      {
+        title: "Guia de estudio.",
+        icon: "📓",
+        content: `
+
+        <div class="pdf-container">
+
+    <div class="pdf-card">
+
+      <div class="pdf-info">
+
+        <span class="pdf-icon">📄</span>
+
+      </div>
+
+      <div class="pdf-buttons">
+
+        <a
+          href="./pdf/guia_software.pdf"
+          target="_blank"
+          class="pdf-view-btn"
+        >
+          👁 Ver
+        </a>
+
+        <a
+          href="./pdf/guia_software.pdf"
+          download
+          class="pdf-download-btn"
+        >
+          ⬇ Descargar
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+        `
       }
 
 
@@ -887,6 +929,49 @@ direccion real y no confiar solo en el diseño de la pagina.</p>
 
 
         `
+      },
+
+
+      {
+        title: "Guia de estudio.",
+        icon: "📓",
+        content: `
+
+        <div class="pdf-container">
+
+    <div class="pdf-card">
+
+      <div class="pdf-info">
+
+        <span class="pdf-icon">📄</span>
+
+      </div>
+
+      <div class="pdf-buttons">
+
+        <a
+          href="./pdf/seguirdad_firmas_digitales.pdf"
+          target="_blank"
+          class="pdf-view-btn"
+        >
+          👁 Ver
+        </a>
+
+        <a
+          href="./pdf/seguirdad_firmas_digitales.pdf"
+          download
+          class="pdf-download-btn"
+        >
+          ⬇ Descargar
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+        `
       }
     ]
 
@@ -946,6 +1031,99 @@ const pedagogicas={
 
   
 }
+
+
+/*==========================
+EJERCICIOS INTEGRADORES
+
+============================*/
+
+const integrativeExercises = {
+
+  tarea_1: [
+
+    {
+      type: "text",
+
+      question:
+        "Explica con tus propias palabras qué es el software."
+    },
+
+
+    {
+      type: "text",
+
+      question:
+        "¿Cuál es la diferencia entre hardware y software?"
+    },
+
+
+    {
+      type: "comparison",
+
+      title:
+        "Compara el software libre y el software propietario.",
+
+      columns: [
+        "Aspecto",
+        "Software Libre",
+        "Software Propietario"
+      ],
+
+      rows: [
+        "Acceso al código fuente",
+        "Tipo de licencia",
+        "Posibilidad de modificarlo",
+        "Ejemplo"
+      ]
+      
+    },
+
+
+    {
+      type: "text",
+
+      question:
+        "Escribe cuatro riesgos de descargar programas de fuentes desconocidas y una medida preventiva para cada uno."
+    }
+
+  ],
+
+
+  tarea_2: [
+
+    {
+      type: "comparison",
+
+      title:
+        "Complete los Siguientes enunciados.",
+
+      columns: [
+        "Aspecto.",
+        "Descripción."
+        
+      ],
+
+      rows: [
+        "Seguridad de la información.",
+        "Criptografía.",
+        "Firma digital.",
+        "CA",
+        "TLS/HTTPS"
+
+      ]
+      
+    },
+
+  ],
+
+
+  tarea_3: [],
+
+  tarea_4: []
+
+};
+
 
 
 /* =====================================================
@@ -1020,6 +1198,7 @@ const taskBackBtn =
 
 const contentBackBtn =
   document.getElementById("contentBackBtn");
+  
 
 
 const studentNameInput =
@@ -1057,6 +1236,29 @@ const homeBtn =
   document.getElementById("homeBtn");
 
 
+const integrativeBtn =
+  document.getElementById("integrativeBtn");
+
+const integrativeSection =
+  document.getElementById("integrativeSection");
+
+const integrativeBackBtn =
+  document.getElementById("integrativeBackBtn");
+
+const saveIntegrativeBtn =
+  document.getElementById("saveIntegrativeBtn");
+
+const integrativeContainer =
+  document.getElementById("integrativeContainer");
+
+const integrativeMessage =
+  document.getElementById("integrativeMessage");
+
+const integrativePdfBtn =
+  document.getElementById("integrativePdfBtn");
+
+
+
 
 /* =====================================================
    VARIABLES
@@ -1091,6 +1293,8 @@ logoutBtn.addEventListener(
 );
 
 
+
+
 /*
   Cuando presionamos Volver desde las preguntas,
   regresamos al menú de la tarea.
@@ -1120,6 +1324,1173 @@ homeBtn.addEventListener(
   "click",
   showDashboard
 );
+
+
+// ejericios integradores
+
+// 
+
+integrativePdfBtn.addEventListener(
+  "click",
+  generateIntegrativePDF
+);
+
+integrativeBtn.addEventListener(
+  "click",
+  () => {
+
+    showIntegrativeExercises(
+      currentSubject
+    );
+
+  }
+);
+
+// volver
+
+integrativeBackBtn.addEventListener(
+  "click",
+  () => {
+
+    integrativeSection.classList.add(
+      "hidden"
+    );
+
+    taskMenuSection.classList.remove(
+      "hidden"
+    );
+
+  }
+);
+
+/*==============================
+EJERCICIOS INTEGRADORES AUTO
+===================================*/
+function showIntegrativeExercises(subject) {
+
+  const activities =
+    integrativeExercises[subject];
+
+
+  if (!activities || activities.length === 0) {
+
+    alert(
+      "Todavía no hay ejercicios integradores disponibles."
+    );
+
+    return;
+
+  }
+
+
+  taskMenuSection.classList.add(
+    "hidden"
+  );
+
+  dashboardSection.classList.add(
+    "hidden"
+  );
+
+  contentSection.classList.add(
+    "hidden"
+  );
+
+  quizSection.classList.add(
+    "hidden"
+  );
+
+
+  integrativeSection.classList.remove(
+    "hidden"
+  );
+
+
+  document
+    .getElementById("integrativeTitle")
+    .textContent =
+    `${subjectNames[subject]} - Integradores`;
+
+
+  integrativeContainer.innerHTML = "";
+
+
+  activities.forEach(
+    (activity, activityIndex) => {
+
+
+      /* =========================
+         PREGUNTA ABIERTA
+      ========================= */
+
+      if (activity.type === "text") {
+
+        const card =
+          document.createElement("div");
+
+
+        card.className =
+          "integrative-card";
+
+
+        card.innerHTML = `
+
+          <h3>
+            ${activityIndex + 1}.
+            ${activity.question}
+          </h3>
+
+          <textarea
+            class="integrative-answer"
+            data-activity="${activityIndex}"
+            placeholder="Escribe tu respuesta aquí..."
+          ></textarea>
+
+        `;
+
+
+        integrativeContainer.appendChild(
+          card
+        );
+
+      }
+
+
+      /* =========================
+         CUADRO COMPARATIVO
+      ========================= */
+
+      if (
+        activity.type ===
+        "comparison"
+      ) {
+
+        const card =
+          document.createElement("div");
+
+
+        card.className =
+          "integrative-card";
+
+
+        let tableHTML = `
+
+          <h3>
+            ${activityIndex + 1}.
+            ${activity.title}
+          </h3>
+
+          <div class="comparison-wrapper">
+
+          <table class="comparison-table">
+
+            <thead>
+
+              <tr>
+
+        `;
+
+
+        activity.columns.forEach(
+          column => {
+
+            tableHTML += `
+              <th>
+                ${column}
+              </th>
+            `;
+
+          }
+        );
+
+
+        tableHTML += `
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+        `;
+
+
+        activity.rows.forEach(
+          (row, rowIndex) => {
+
+            tableHTML += `
+
+              <tr>
+
+                <td class="comparison-label">
+                  ${row}
+                </td>
+
+            `;
+
+
+            for (
+              let columnIndex = 1;
+              columnIndex <
+              activity.columns.length;
+              columnIndex++
+            ) {
+
+              tableHTML += `
+
+                <td>
+
+                  <textarea
+                    class="comparison-answer"
+                    data-activity="${activityIndex}"
+                    data-row="${rowIndex}"
+                    data-column="${columnIndex}"
+                    placeholder="Escribe..."
+                  ></textarea>
+
+                </td>
+
+              `;
+
+            }
+
+
+            tableHTML += `
+
+              </tr>
+
+            `;
+
+          }
+        );
+
+
+        tableHTML += `
+
+            </tbody>
+
+          </table>
+
+          </div>
+
+        `;
+
+
+        card.innerHTML =
+          tableHTML;
+
+
+        integrativeContainer.appendChild(
+          card
+        );
+
+      }
+
+    }
+  );
+
+
+  restoreIntegrativeAnswers(
+    subject
+  );
+
+}
+
+// SALVAR RESPUESTAS 
+
+saveIntegrativeBtn.addEventListener(
+  "click",
+  saveIntegrativeAnswers
+);
+
+function saveIntegrativeAnswers() {
+
+  const data = {
+
+    student:
+      student.name,
+
+    grade:
+      student.grade,
+
+    subject:
+      currentSubject,
+
+    date:
+      new Date()
+        .toLocaleString("es-GT"),
+
+    textAnswers: [],
+
+    comparisonAnswers: []
+
+  };
+
+
+  /* PREGUNTAS ABIERTAS */
+
+  document
+    .querySelectorAll(
+      ".integrative-answer"
+    )
+    .forEach(textarea => {
+
+      data.textAnswers.push({
+
+        activity:
+          Number(
+            textarea.dataset.activity
+          ),
+
+        answer:
+          textarea.value
+
+      });
+
+    });
+
+
+  /* CUADROS COMPARATIVOS */
+
+  document
+    .querySelectorAll(
+      ".comparison-answer"
+    )
+    .forEach(textarea => {
+
+      data.comparisonAnswers.push({
+
+        activity:
+          Number(
+            textarea.dataset.activity
+          ),
+
+        row:
+          Number(
+            textarea.dataset.row
+          ),
+
+        column:
+          Number(
+            textarea.dataset.column
+          ),
+
+        answer:
+          textarea.value
+
+      });
+
+    });
+
+
+  const key =
+    `integrative_${student.name}_${currentSubject}`;
+
+
+  localStorage.setItem(
+    key,
+    JSON.stringify(data)
+  );
+
+
+  integrativeMessage.textContent =
+    "✅ Respuestas guardadas correctamente.";
+
+}
+
+// POR SI RECARGAN 
+
+function restoreIntegrativeAnswers(subject) {
+
+  const key =
+    `integrative_${student.name}_${subject}`;
+
+
+  const saved =
+    localStorage.getItem(key);
+
+
+  if (!saved) {
+    return;
+  }
+
+
+  const data =
+    JSON.parse(saved);
+
+
+  data.textAnswers.forEach(
+    item => {
+
+      const textarea =
+        document.querySelector(
+          `.integrative-answer[data-activity="${item.activity}"]`
+        );
+
+
+      if (textarea) {
+
+        textarea.value =
+          item.answer;
+
+      }
+
+    }
+  );
+
+
+  data.comparisonAnswers.forEach(
+    item => {
+
+      const textarea =
+  document.querySelector(
+    `.comparison-answer[data-activity="${item.activity}"][data-row="${item.row}"][data-column="${item.column}"]`
+  );
+
+
+      if (textarea) {
+
+        textarea.value =
+          item.answer;
+
+      }
+
+    }
+  );
+
+}
+
+// pdf integrador
+
+async function generateIntegrativePDF() {
+
+  try {
+
+    /* ================================
+       VERIFICAR JSPDF
+    ================================= */
+
+    if (!window.jspdf) {
+
+      alert("No se pudo cargar la librería PDF.");
+
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+
+
+    /* ================================
+       GUARDAR RESPUESTAS ACTUALES
+    ================================= */
+
+    saveIntegrativeAnswers();
+
+
+    const key =
+      `integrative_${student.name}_${currentSubject}`;
+
+
+    const saved =
+      localStorage.getItem(key);
+
+
+    if (!saved) {
+
+      alert(
+        "Primero debes guardar tus respuestas."
+      );
+
+      return;
+    }
+
+
+    const data =
+      JSON.parse(saved);
+
+
+    const activities =
+      integrativeExercises[currentSubject];
+
+
+    if (!activities) {
+
+      alert(
+        "No existen actividades integradoras."
+      );
+
+      return;
+    }
+
+
+    /* ================================
+       CREAR PDF
+    ================================= */
+
+    const doc =
+      new jsPDF();
+
+
+    let y = 20;
+
+
+
+    /* ================================
+       ENCABEZADO
+    ================================= */
+
+    doc.setFont(
+      "helvetica",
+      "bold"
+    );
+
+
+    doc.setFontSize(18);
+
+    doc.text(
+      "Liceo Nueva Generación",
+      20,
+      20
+    );
+
+
+    doc.setFontSize(11);
+
+
+    doc.text(
+      "Curso: T.I.C. I",
+      20,
+      26
+    );
+
+
+    doc.text(
+      `Nombre: ${student.name}`,
+      20,
+      30
+    );
+
+
+    doc.text(
+      `Grado: ${student.grade}`,
+      20,
+      34
+    );
+
+
+    doc.text(
+      `Clave: ${student.code || ""}`,
+      20,
+      38
+    );
+
+
+    doc.text(
+      `Profesor: ${student.teacher || ""}`,
+      20,
+      42
+    );
+
+
+
+    /* ================================
+       LOGO
+    ================================= */
+
+    try {
+
+      const response =
+        await fetch(
+          "./imagenes/logolng.png"
+        );
+
+
+      const blob =
+        await response.blob();
+
+
+      const logoBase64 =
+        await new Promise(
+          (resolve, reject) => {
+
+            const reader =
+              new FileReader();
+
+
+            reader.onload =
+              () => resolve(
+                reader.result
+              );
+
+
+            reader.onerror =
+              reject;
+
+
+            reader.readAsDataURL(
+              blob
+            );
+
+          }
+        );
+
+
+      doc.addImage(
+        logoBase64,
+        "PNG",
+        145,
+        12,
+        40,
+        28
+      );
+
+
+    } catch (error) {
+
+      console.error(
+        "No se pudo cargar el logo:",
+        error
+      );
+
+    }
+
+
+
+    /* ================================
+       LÍNEA DEL ENCABEZADO
+    ================================= */
+
+    doc.setLineWidth(0.4);
+
+
+    doc.line(
+      20,
+      46,     //58,
+      190,
+      46     //58
+    );
+
+
+    y = 54;     //72;
+
+
+
+    /* ================================
+       TÍTULO
+    ================================= */
+
+    doc.setFontSize(15);
+
+    doc.setFont(
+      "helvetica",
+      "bold"
+    );
+
+
+    doc.text(
+      "Ejercicios Integradores",
+      20,
+      y
+    );
+
+
+    y += 10;
+
+
+
+    doc.setFontSize(10);
+
+
+    doc.text(
+      `Tarea: ${subjectNames[currentSubject]}`,
+      20,
+      y
+    );
+
+
+    y += 6;
+
+
+    doc.text(
+      `Fecha: ${data.date}`,
+      20,
+      y
+    );
+
+
+    y += 6;
+
+
+    doc.text(
+      "Nota: Pendiente de revisión",
+      20,
+      y
+    );
+
+
+    y += 10;
+
+
+    doc.line(
+      20,
+      y,
+      190,
+      y
+    );
+
+
+    y += 10;
+
+
+
+    /* ================================
+       RECORRER ACTIVIDADES
+    ================================= */
+
+    activities.forEach(
+      (activity, activityIndex) => {
+
+
+        /* =================================
+           PREGUNTA ABIERTA
+        ================================= */
+
+        if (
+          activity.type === "text"
+        ) {
+
+
+          const savedAnswer =
+            data.textAnswers.find(
+              item =>
+                item.activity ===
+                activityIndex
+            );
+
+
+          const answer =
+            savedAnswer
+              ? savedAnswer.answer
+              : "Sin responder";
+
+
+          /* Nueva página */
+
+          if (y > 245) {
+
+            doc.addPage();
+
+            y = 20;
+
+          }
+
+
+          doc.setFont(
+            "helvetica",
+            "bold"
+          );
+
+
+          doc.setFontSize(10);
+
+
+          const questionLines =
+            doc.splitTextToSize(
+
+              `${activityIndex + 1}. ${activity.question}`,
+
+              165
+
+            );
+
+
+          doc.text(
+            questionLines,
+            20,
+            y
+          );
+
+
+          y +=
+            questionLines.length * 6;
+
+
+          y += 3;
+
+
+
+          /* RESPUESTA */
+
+          doc.setFont(
+            "helvetica",
+            "normal"
+          );
+
+
+          const answerLines =
+            doc.splitTextToSize(
+
+              `Respuesta: ${answer}`,
+
+              160
+
+            );
+
+
+          doc.text(
+            answerLines,
+            25,
+            y
+          );
+
+
+          y +=
+            answerLines.length * 6;
+
+
+          y += 10;
+
+        }
+
+
+
+        /* =================================
+           CUADRO COMPARATIVO
+        ================================= */
+
+        if (
+          activity.type ===
+          "comparison"
+        ) {
+
+
+          if (y > 220) {
+
+            doc.addPage();
+
+            y = 20;
+
+          }
+
+
+          doc.setFont(
+            "helvetica",
+            "bold"
+          );
+
+
+          doc.setFontSize(10);
+
+
+          const titleLines =
+            doc.splitTextToSize(
+
+              `${activityIndex + 1}. ${activity.title}`,
+
+              165
+
+            );
+
+
+          doc.text(
+            titleLines,
+            20,
+            y
+          );
+
+
+          y +=
+            titleLines.length * 6 + 5;
+
+
+
+          /* =============================
+             ENCABEZADOS TABLA
+          ============================= */
+
+
+          const startX = 20;
+
+
+          const widths = [
+            50,
+            60,
+            60
+          ];
+
+
+          const headerHeight =
+            12;
+
+
+          let currentX =
+            startX;
+
+
+          doc.setFont(
+            "helvetica",
+            "bold"
+          );
+
+
+          activity.columns.forEach(
+            (column, columnIndex) => {
+
+
+              doc.rect(
+                currentX,
+                y,
+                widths[columnIndex],
+                headerHeight
+              );
+
+
+              const columnLines =
+                doc.splitTextToSize(
+                  column,
+                  widths[columnIndex] - 4
+                );
+
+
+              doc.text(
+                columnLines,
+                currentX + 2,
+                y + 5
+              );
+
+
+              currentX +=
+                widths[columnIndex];
+
+            }
+          );
+
+
+          y += headerHeight;
+
+
+
+          /* =============================
+             FILAS DE LA TABLA
+          ============================= */
+
+          activity.rows.forEach(
+            (row, rowIndex) => {
+
+
+              const cell1 =
+                doc.splitTextToSize(
+                  row,
+                  widths[0] - 4
+                );
+
+
+              const answer1Data =
+                data.comparisonAnswers.find(
+                  item =>
+
+                    item.activity ===
+                      activityIndex &&
+
+                    item.row ===
+                      rowIndex &&
+
+                    item.column === 1
+
+                );
+
+
+              const answer2Data =
+                data.comparisonAnswers.find(
+                  item =>
+
+                    item.activity ===
+                      activityIndex &&
+
+                    item.row ===
+                      rowIndex &&
+
+                    item.column === 2
+
+                );
+
+
+              const cell2 =
+                doc.splitTextToSize(
+
+                  answer1Data?.answer ||
+                  "Sin responder",
+
+                  widths[1] - 4
+
+                );
+
+
+              const cell3 =
+                doc.splitTextToSize(
+
+                  answer2Data?.answer ||
+                  "Sin responder",
+
+                  widths[2] - 4
+
+                );
+
+
+              const maxLines =
+                Math.max(
+                  cell1.length,
+                  cell2.length,
+                  cell3.length
+                );
+
+
+              const rowHeight =
+                maxLines * 5 + 6;
+
+
+
+              /* Verificar nueva página */
+
+              if (
+                y + rowHeight >
+                280
+              ) {
+
+                doc.addPage();
+
+                y = 20;
+
+              }
+
+
+
+              currentX =
+                startX;
+
+
+              /* PRIMERA CELDA */
+
+              doc.rect(
+                currentX,
+                y,
+                widths[0],
+                rowHeight
+              );
+
+
+              doc.setFont(
+                "helvetica",
+                "bold"
+              );
+
+
+              doc.text(
+                cell1,
+                currentX + 2,
+                y + 5
+              );
+
+
+              currentX +=
+                widths[0];
+
+
+
+              /* SEGUNDA CELDA */
+
+              doc.rect(
+                currentX,
+                y,
+                widths[1],
+                rowHeight
+              );
+
+
+              doc.setFont(
+                "helvetica",
+                "normal"
+              );
+
+
+              doc.text(
+                cell2,
+                currentX + 2,
+                y + 5
+              );
+
+
+              currentX +=
+                widths[1];
+
+
+
+              /* TERCERA CELDA */
+
+              doc.rect(
+                currentX,
+                y,
+                widths[2],
+                rowHeight
+              );
+
+
+              doc.text(
+                cell3,
+                currentX + 2,
+                y + 5
+              );
+
+
+              y +=
+                rowHeight;
+
+            }
+          );
+
+
+          y += 12;
+
+        }
+
+      }
+    );
+
+
+
+    /* ================================
+       GUARDAR PDF
+    ================================= */
+
+    const safeName =
+      student.name.replace(
+        /[^a-zA-Z0-9_-]/g,
+        "_"
+      );
+
+
+    doc.save(
+      `Integrador_${safeName}_${currentSubject}.pdf`
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "Error generando PDF integrador:",
+      error
+    );
+
+
+    alert(
+      "Ocurrió un error al generar el PDF."
+    );
+
+  }
+
+}
+
+
+
 
 
 
