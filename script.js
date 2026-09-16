@@ -76,7 +76,12 @@ const exercises = {
          "Malware que busca bloquear o cifrar información y exigir un pago.", 
          "Programa que mejora automáticamente la memoria RAM."],
       answer: 2
-    },
+    }
+      
+  ],
+
+
+  tarea_2: [
     {
       question: "¿Qué principio de seguridad busca que la información sea accesible únicamente para personas o sistemas autorizados?",
       options: [
@@ -158,35 +163,7 @@ const exercises = {
          "HTTPS únicamente indica que el servidor utiliza una contraseña más compleja que los sitios HTTP."],
       answer: 2
     }
-  ],
-
-
-  tarea_2: [
-    {
-      question: "¿Cuál es la traducción de 'house'?",
-      options: ["Casa", "Perro", "Escuela", "Comida"],
-      answer: 0
-    },
-    {
-      question: "Completa: She ___ happy.",
-      options: ["am", "is", "are", "be"],
-      answer: 1
-    },
-    {
-      question: "¿Cuál es el pasado de 'go'?",
-      options: ["goed", "gone", "went", "goes"],
-      answer: 2
-    },
-    {
-      question: "¿Qué significa 'teacher'?",
-      options: ["Alumno", "Maestro", "Doctor", "Amigo"],
-      answer: 1
-    },
-    {
-      question: "Completa: They ___ playing.",
-      options: ["is", "am", "are", "be"],
-      answer: 2
-    }
+    
   ],
 
 
@@ -264,7 +241,7 @@ const contents = {
 
   tarea_1: {
 
-    title: "Tarea 1 - Software y Firmas Digitales",
+    title: "Software.",
 
     topics: [
 
@@ -284,7 +261,7 @@ const contents = {
           </p>
 
           <p>
-            A diferencia del hardware, el software no esalgo físico que podamos tocar.
+            A diferencia del hardware, el software no es algo físico que podamos tocar.
 
            </p> 
            
@@ -301,6 +278,35 @@ const contents = {
 
           </p>
 
+           <p> Dejo por acá un video interesante, educativo e informativo acerca de Software y algunos tipos de Software. </p>
+        <a 
+
+          href= "https://youtu.be/gVaE2F0jOJs?si=JQDeLADDHVVfEfvM"
+          target=_blank"
+          rel="noopener noreferrer"
+          class="youtube-btn"
+        >
+          ▶️ Ver video en Youtube
+
+        </a>
+        <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/gVaE2F0jOJs"
+      title="Video de YouTube"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share
+      "
+      allowfullscreen>
+    </iframe>
+  </div>
+
         
         `
       },
@@ -316,19 +322,51 @@ const contents = {
           </p>
 
           <ul>
-            <li>Software de sistema</li>
+            <li>Software de sistema.</li>
 
             <p>
             El software de sistema administra el equipo, por ejemplo Windows, Linux, Android o macOS. 
             </p>
+
+            <p> El software de sistema es el conjunto de programas fundamentales que gestionan directamente el hardware de una computadora o dispositivo y sirven de base sobre la cual se ejecutan el resto de las aplicaciones. 
+            Actúa como capa intermedia entre los componentes físicos (procesador, memoria, almacenamiento) y el usuario.</p>
+
+            <p>Administración de recursos: Controla y distribuye el uso del procesador (CPU), la memoria RAM y las unidades de almacenamiento.</p>
+            <p>Comunicación con el hardware: Traduce las peticiones de los programas a instrucciones que los componentes físicos puedan entender.</p>
+            <p>Seguridad y permisos: Restringe el acceso no autorizado a los archivos del sistema y gestiona las cuentas de usuario.</p>
+
             <p>
-            El software de aplicación permite realizar tareas concretas, como Word, Excel, Chrome o un editor de imágenes. 
-            </p>
-            <p>
-            El software de programación proporciona herramientas para crear otros programas, como Visual Studio Code, IntelliJ IDEA, PyCharm o NetBeans. 
-            </p>
             
-            <li>Software Libree, Propietario y de Código Abierto </li>
+            </p
+
+            <p> - Componentes Principales: </p>
+
+            <p>   Sistemas Operativos (SO): La estructura principal del equipo (ej. Linux, Windows, macOS, Android, iOS).</p>
+            <p>   Controladores de dispositivo (Drivers): Módulos que permiten al sistema operativo interactuar con periféricos específicos (tarjetas de video, impresoras, adaptadores Wi-Fi).</p>
+            <p>   Firmware / BIOS / UEFI: Código grabado directamente en la memoria del hardware que inicializa los componentes al encender el equipo.</p>
+            <p>   Cargadores de arranque (Bootloaders): Programas encargados de cargar el sistema operativo en la memoria RAM tras el encendido.</p>
+           
+           
+            <li>
+            El software de aplicación.
+            </li>
+
+            <p>El software de aplicación comprende todos los programas y herramientas desarrolladas para realizar tareas específicas en beneficio directo del usuario final. 
+            A diferencia del software de sistema, no gestiona los componentes físicos del equipo, 
+            sino que utiliza los recursos del sistema operativo para procesar datos, automatizar trabajos, 
+            comunicar información o brindar entretenimiento.</p>
+        
+            <li>
+            El software de programación.
+            </li>
+
+            <p>El software de programación (o herramientas de desarrollo) comprende el conjunto de programas que permiten a los desarrolladores escribir, probar, depurar, traducir y mantener otros programas informáticos. Sirve como el puente técnico que transforma las instrucciones redactadas 
+            en lenguajes comprensibles por humanos en código ejecutable por el hardware o el sistema operativo.</p> 
+            <p></p> 
+            <p></p> 
+
+      
+            <li>Software Libre, Propietario y de Código Abierto </li>
 
             <p>
             El software propietario pertenece a una organización o desarrollador y su licencia limita ciertos usos,
@@ -362,6 +400,8 @@ const contents = {
             <li> Software de Diseño </li>
 
             <p>Permite crear, modificar o producir contenido visual, técnico o multimedia. Entre los ejemplos pueden mencionarse Photoshop, GIMP, Blender o AutoCAD, según el tipo de trabajo. </p>
+           
+           
             <li> Software de Comunicación </li>
 
 
@@ -369,6 +409,37 @@ const contents = {
             <p>Facilita el intercambio de información mediante correo, mensajería, videollamadas y plataformas colaborativas. Es fundamental en educación y trabajo remoto. </p>
             
           </ul>
+
+
+          <p> Dejo por acá un video interesante, educativo e informativo acerca de loos Tipos de Software. </p>
+        <a 
+
+          href= "https://youtu.be/uAm-YcVwH38?si=ZMVJ_lbhK6vX80R7"
+          target=_blank"
+          rel="noopener noreferrer"
+          class="youtube-btn"
+        >
+          ▶️ Ver video en Youtube
+
+        </a>
+
+        <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/uAm-YcVwH38"
+      title="Video de YouTube"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share
+      "
+      allowfullscreen>
+    </iframe>
+  </div>
         `
       },
 
@@ -377,6 +448,7 @@ const contents = {
         icon: "💽", 
 
         content: `
+      <ul>
 
         <li> ¿Que Significa Instalar? </li>
         <p>Instalar significa incorporar al sistema los archivos, configuraciones, dependencias y permisos necesarios para ejecutar correctamente un programa. Durante el proceso pueden copiarse archivos, crearse carpetas, 
@@ -407,7 +479,9 @@ incompatible o representa un riesgo. </p>
 
 
         <p>Archivos Residuales:Tras una desinstalación pueden permanecer configuraciones, carpetas, cachés o datos del usuario. Estos
-elementos se conocen comúnmente como archivos residuales, estos deben de eleminarse para una desisntalación completa, ya que estos archivos al no ser eliminados ocupan espacio en el almacenamiento interno. </p>
+elementos se conocen comúnmente como archivos residuales, estos deben de eleminarse para una desisntalación completa, ya que estos archivos al no ser eliminados ocupan espacio en el almacenamiento interno. 
+</p>
+</u>
         
         
         <p> Dejo por acá un video interesante, educativo e informativo acerca de la instalación y desinstalación de programas en PC (Windows). </p>
@@ -422,11 +496,140 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
 
         </a>
 
+        
+        <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/GyZ1SDyHf4Y"
+      title="Video de YouTube"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share
+      "
+      allowfullscreen>
+    </iframe>
+  </div>
+
         `
+      }
+
+
+    
+    ]
+
+  },
+
+
+
+  tarea_2: {
+
+    title: "Tarea 2",
+
+    topics: [
+
+       {
+        title: "Seguridad de la Información.",
+        icon: "🔐",
+
+        content: `
+        <p>
+        La seguridad de la información es el conjunto de medidas, políticas y tecnologías diseñadas para proteger la 
+        confidencialidad, integridad y disponibilidad de los datos frente a accesos no autorizados, 
+        modificaciones o interrupciones.  
+        </p>
+      
+        <p>
+            La seguridad de la informacion busca proteger los datos y los sistemas frente al acceso, uso, divulgacion o 
+            modificacion no autorizados. Para esta unidad se trabajan especialmente tres propiedades: confidencialidad, 
+            integridad y autenticidad. Estas propiedades se complementan y permiten analizar distintos riesgos de 
+            programas y documentos electronicos.
+          </p>
+        <ul>  
+
+         
+
+          <li>Confidencialidad.</li>
+          <p>La confidencialidad procura que la informacion solo sea accesible para personas o sistemas autorizados.
+          Puede apoyarse en controles de acceso, permisos, autenticacion de usuarios y cifrado. La finalidad no es
+          esconder que el archivo existe, sino impedir que personas no autorizadas conozcan su contenido.</p>
+
+          <p>Ejemplo: un profesor almacena las calificaciones en un sistema al que solo acceden usuarios 
+          autorizados. Publicar accidentalmente el archivo afectaria la confidencialidad</p>
+
+        <li>Integridad.</li>
+         <p>La integridad busca conservar la exactitud del contenido y detectar cambios no autorizados. Puede apoyarse
+         en controles de permisos, hashes, firmas digitales y otros mecanismos.</p>
+
+         <p>Asegura que la información permanezca precisa, completa y libre de alteraciones no autorizadas.</p>
+         <p>Ejemplo: Ejemplo: si un contrato cambia de Q1,000 a Q10,000 despues de ser aprobado, existe un problema de 
+         integridad aunque el archivo siga abriendo normalmente.</p>
+        
+         <li>Disponibilidad.</li>
+        
+         
+          <p>Garantiza que los sistemas y datos estén accesibles para los usuarios cuando lo requieran.</p>
+
+          <li>Integridad.</li>
+
+          <p> La integridad busca conservar la exactitud del contenido y detectar cambios no autorizados. 
+          Puede apoyarse en controles de permisos, hashes, firmas digitales y otros mecanismos.
+          </p>
+
+          <p>Ejemplo: si un contrato cambia de Q1,000 a Q10,000 despues de ser aprobado, existe un problema de
+          integridad aunque el archivo siga abriendo normalmente</p>
+        </ul>
+
+      <p>Autenticidad:</p>
+      <ul>
+      <p>Antes de ejecutar software es conveniente comprobar su procedencia: sitio oficial, tienda reconocida,
+desarrollador esperado y, cuando el sistema lo muestre, informacion de firma o editor. La autenticidad reduce
+el riesgo de ejecutar archivos manipulados o suplantados, pero debe combinarse con otras medidas de
+seguridad.
+      </p>
+      <p> Ejemplo: "ActualizacionOficial.exe" puede llamarse asi sin haber sido producido por la empresa que 
+      aparenta representar.</p>
+      </ul> 
+
+    <p>Autenticidad de Programas:</p>
+      <ul>
+      <p> La autenticidad busca comprobar que una identidad, programa, documento o comunicacion corresponde
+     realmente al origen que afirma tener. Un nombre de archivo, un logotipo o una direccion visualmente parecida 
+     no bastan para demostrar autenticidad.
+      </p>
+      <p> Ejemplo: dos instaladores pueden tener el mismo icono; uno procede del sitio oficial y otro de un enlace
+desconocido. La apariencia no permite determinar por si sola cual es autentico.</p>
+      </ul> 
+
+
+      <p>Autenticidad de Documentos Electronicos:</p>
+      <ul>
+      <p> En documentos digitales interesa saber quien esta asociado con su emision o firma y si el contenido
+permanece igual al que fue firmado. Las firmas digitales y los certificados pueden participar en esta
+verificacion.
+      </p>
+      <p> Ejemplo:Ejemplo: en un contrato firmado digitalmente, una modificacion posterior puede provocar que la
+verificacion de la firma deje de ser valida.</p>
+
+      </ul> 
+
+      <img
+      src="./imagenes/cuadro_c1.jpeg"
+      alt="Ejemplo de la seg. de la info."
+      class="topic-image"
+      >
+        
+
+        
+        `
+        
       },
 
-
-      {
+       {
         title: "Firma Digital",
         icon: "✍️",
 
@@ -437,23 +640,82 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
             documento electrónico.
           </p>
 
-          <p> Una firma digital es un mecanismo criptográfico basado en infraestructura de clave pública 
-          (PKI) que verifica la identidad del firmante y garantiza que un documento electrónico no ha sido alterado.<p>
+          <p>La firma digital es un mecanismo criptografico que permite verificar la integridad de los datos firmados y la 
+          relacion de la firma con una clave privada. Cuando esa clave esta vinculada de manera confiable con una 
+          identidad, tambien contribuye a la autenticidad del firmante. </p>
 
-          <p>
+          <p> Una firma digital es un mecanismo criptográfico basado en infraestructura de clave pública 
+          (PKI) que verifica la identidad del firmante y garantiza que un documento electrónico no ha sido alterado.
             También permite comprobar que el documento
             no haya sido modificado.
           </p>
 
-          <li> ¿Como Funciona? </li> 
+          <li>Firma Electronica y Firma Digital.</li>
+
+          <p>En lenguaje cotidiano pueden confundirse, pero no son necesariamente equivalentes. "Firma electronica" 
+          puede ser un concepto mas amplio para distintos mecanismos electronicos de aceptacion o identificacion; 
+          "firma digital" se refiere aqui al mecanismo basado en criptografia de clave publica. El alcance juridico 
+          concreto depende de la normativa aplicable. </p>
+
+          <p> Ejemplo: escribir un nombre al final de un formulario puede considerarse una forma electronica de
+          aceptacion en ciertos contextos, pero no constituye automaticamente una firma digital criptografica.</p>
 
 
-          <p> Criptografía: Utiliza un par de claves matemáticas (una privada para firmar y otra pública para verificar). </p>
-          <p> Integridad: Crea una huella digital única del archivo; si alguien modifica el documento, la firma se invalida de inmediato.</p> 
-          <p> Seguridad: A diferencia de una simple imagen de tu rastro manuscrito, ofrece una prueba sólida contra fraudes y manipulaciones.</p>
+          <img 
+          src="./imagenes/firmaDigital.png"
+          alt="Ejemplo de la seg. de la info."
+          class="topic-image"
+          >
+        
+
+
+        
+
+        `
+      },
+
+      {
+        title: "¿Como Funciona una Firma Digital.",
+        icon: "✍️",
+
+        content: `
+           <p> ¿Como Funciona? </p> 
+          <ul>
+          <li>Cripotografía.</li>
+          <p>La criptografia utiliza tecnicas matematicas, algoritmos y claves para proteger informacion y comunicaciones. 
+          Se emplea en cifrado, firmas digitales, protocolos de comunicacion segura y otros mecanismos. No debe 
+          entenderse como un unico programa, sino como un conjunto de tecnicas. </p>
           
+          <p>Ejemplo: Esquema: datos legibles -> algoritmo + clave -> datos cifrados. Para recuperar la informacion se realiza 
+          la operacion criptografica correspondiente con los elementos autorizados.</p>
 
-           <p> Dejo por acá un video interesante, educativo e informativo acerca de las firmas digitales. </p>
+          <p> Utiliza un par de claves matemáticas (una privada para firmar y otra pública para verificar). </p>
+
+          <li>Integridad.</li>
+
+          <p>La integridad se enfoca exclusivamente en garantizar que el documento no haya sido alterado, 
+          modificado ni corrompido desde el momento exacto en que se aplicó la firma.</p>
+
+
+          <p>Mecanismo técnico: Se basa en algoritmos hash (como SHA-256) que generan un código único representativo del archivo.</p>
+          <p>Efecto de modificación: Si se altera un solo espacio, coma o carácter del archivo firmado, 
+          el cálculo del hash cambia drásticamente y el sistema declara la firma como inválida.</p>
+          <p>Objetivo principal: Garantizar que lo que firmaste es exactamente lo que el destinatario está leyendo.</p>
+  
+
+          <p>Crea una huella digital única del archivo; si alguien modifica el documento, la firma se invalida de inmediato.</p> 
+
+          <li>Seguridad.</li>
+          <p> A diferencia de una simple imagen de tu rastro manuscrito, ofrece una prueba sólida contra fraudes y manipulaciones.</p>
+          <p>La seguridad abarca el conjunto de medidas criptográficas y legales que aseguran la validez de la identidad del firmante y el control de las credenciales.</p>
+          <p>Mecanismo técnico: Utiliza Criptografía Asimétrica mediante un par de claves únicas: la clave privada 
+          (secreta y en custodia estricta del usuario) y la clave pública (accesible a cualquiera para verificar).</p>
+          <p>Autenticidad: Confirma de forma matemática quién es el autor de la firma sin revelar su clave secreta.</p>
+          <p>No Repudio: Impide que el emisor niegue haber firmado el documento, ya que solo su clave privada pudo haber generado ese registro específico.</p>
+
+
+
+      <p> Dejo por acá un video interesante, educativo e informativo acerca de las firmas digitales. </p>
         <a 
 
           href= "https://youtu.be/Kd109KC4xm8?si=y_9TKAHDBmf654o6"
@@ -465,7 +727,70 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
 
         </a>
 
+        <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/Kd109KC4xm8"
+      title="Video de YouTube"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share
+      "
+      allowfullscreen>
+    </iframe>
+  </div>
 
+
+        `
+      },
+
+       {
+        title: "Tipos de Criptografía.",
+        icon: "📚",
+
+        content: `
+          <p>
+            Claves Criptograficas.
+          </p>
+          <ul>Una clave criptografica es un valor utilizado por un algoritmo. La seguridad depende en gran medida de
+generar, almacenar, utilizar y proteger correctamente las claves. Una clave privada o secreta expuesta puede
+comprometer los mecanismos que dependen de ella</ul>
+
+          <ul>
+          <li>Criptografía Simetrica.</li>
+          <p>La criptografia simetrica utiliza una clave secreta compartida para cifrar y descifrar. Es apropiada para
+procesar grandes cantidades de datos con eficiencia. Su reto principal es distribuir y proteger la clave
+compartida.</p>
+
+          <p>Ejemplo: Ana y Carlos poseen la misma clave secreta. Ana cifra un archivo y Carlos utiliza esa clave
+para descifrarlo.</p>
+
+          <li> Criptografía Asimetrica.</li>
+          <p>La criptografia asimetrica utiliza un par de claves relacionadas: publica y privada. La publica puede
+distribuirse; la privada debe permanecer protegida. Este enfoque participa en firmas digitales y en
+mecanismos para establecer comunicaciones seguras.</p>
+          <p>Ejemplo: compartir la clave publica no significa entregar la clave privada. Ambas estan relacionadas
+matematicamente, pero cumplen funciones diferentes.</p>
+
+          <li>Comparación.</li>
+          <p>os dos modelos no deben verse necesariamente como competidores. En sistemas reales pueden
+combinarse: los mecanismos asimetricos ayudan, por ejemplo, a autenticacion o establecimiento de secretos,
+mientras el cifrado simetrico protege eficientemente grandes cantidades de datos. </p>
+          <p>Idea clave: simetrica = secreto compartido; asimetrica = par publica/privada. Cada una resuelve
+necesidades diferentes.</p>
+          </u>
+
+
+          <img 
+          src="./imagenes/tiposDeCriptografía.png"
+          alt="Ejemplo de la seg. de la info."
+          class="topic-image"
+          >
         `
       },
 
@@ -480,45 +805,89 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
             a una persona, organización o sitio web
             de manera electrónica.
           </p>
+
+          <p>Un certificado digital vincula una clave publica con informacion de una identidad o dominio. Puede contener
+sujeto, emisor, clave publica, numero de serie, periodo de validez y firma digital del emisor.</p>
+
+          <p>Ejemplo: el certificado de un sitio ayuda al navegador a evaluar si la clave publica presentada esta
+asociada con el dominio solicitado dentro de una cadena de confianza.</p>
+<ul>
+
+          <li>Autoridades Certificadoras</li>
+
+      <p>Una Autoridad Certificadora (CA) participa en la emision de certificados y en una infraestructura de confianza.
+Los sistemas mantienen autoridades raiz confiables y pueden construir cadenas desde el certificado del
+servidor hasta una raiz reconocida</p>
+
+          <li>Vigencia y Revocación. </li>
+
+        <p>Un certificado tiene un periodo de validez. Ademas, puede existir la necesidad de invalidarlo antes de su
+        fecha de expiracion, por ejemplo si la clave privada asociada se considera comprometida. Los sistemas
+        pueden utilizar mecanismos de comprobacion de estado segun el contexto.</p>
+
+        <li>TLS Y HTPPS.</li>
+        <p>HTTPS es HTTP protegido mediante TLS. TLS permite establecer una comunicacion cifrada, proteger la 
+        integridad de los datos en transito y autenticar al servidor mediante certificados. Durante el establecimiento de 
+        la sesion se negocian parametros criptograficos y se crean secretos de sesion.</p>
+        <p>HTTPS (HTTP Secure) no es un protocolo diferente a HTTP, sino la combinación de HTTP operando sobre una capa de seguridad llamada TLS 
+        (Transport Layer Security, el sucesor moderno del obsoleto SSL).</p>
+
+        <p>En el modelo de capas de red, mientras que HTTP opera en la capa de aplicación enviando texto plano por el puerto 80, 
+        HTTPS añade la capa TLS justo antes de entregar los paquetes a la capa de transporte TCP (puerto 443).</p>
+        <p>Ejemplo: al iniciar sesion en una plataforma HTTPS, las credenciales viajan dentro de un canal
+protegido por TLS; esto no sustituye otras medidas de seguridad de la cuenta.</p>
+
+        <li>Lo que HTTPS No Garantiza</li>
+        <p>HTTPS no certifica que una noticia sea verdadera, que una tienda vaya a cumplir una promesa o que un
+archivo ofrecido sea benigno. Un sitio fraudulento tambien puede obtener un certificado para su propio
+dominio. HTTPS indica principalmente que existe una conexion protegida con el servidor autenticado para ese
+dominio.</p>
+<p> Ejemplo: "banco-ejemplo-falso.com" podria tener HTTPS. El candado no convierte ese dominio en el
+sitio oficial de un banco real.</p>
+
+<li> Riesgos Frecuentes. </li>
+
+<p>Entre los riesgos se encuentran suplantacion de sitios, instaladores modificados, documentos manipulados,
+robo de credenciales, claves privadas expuestas y confianza excesiva en elementos visuales como logotipos
+o candados. La seguridad requiere combinar controles tecnicos con decisiones responsables del usuario.</p>
+
+<p>Caso: un correo urgente incluye un enlace a un dominio parecido al oficial. El usuario debe revisar la
+direccion real y no confiar solo en el diseño de la pagina.</p>
+
+</ul>
+
+
+  <p>
+    Dejo por acá un video interesante, educativo e informativo acerca de Certificados Digitales:
+  </p>
+
+  <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/jzJBGBxGN14"
+      title="Video de YouTube"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share
+      "
+      allowfullscreen>
+    </iframe>
+  </div>
+
+   <img 
+          src="./imagenes/tlsHttps.png"
+          alt="Ejemplo de la seg. de la info."
+          class="topic-image"
+          >
+
+
         `
       }
-
-    ]
-
-  },
-
-
-
-  tarea_2: {
-
-    title: "Tarea 2",
-
-    topics: [
-
-      {
-        title: "Tema principal",
-        icon: "📖",
-
-        content: `
-          <p>
-            Aquí puedes escribir el contenido del primer
-            tema de la tarea 2.
-          </p>
-        `
-      },
-
-
-      {
-        title: "Segundo tema",
-        icon: "📚",
-
-        content: `
-          <p>
-            Aquí puedes colocar el contenido del segundo tema.
-          </p>
-        `
-      }
-
     ]
 
   },
@@ -532,12 +901,12 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
     topics: [
 
       {
-        title: "Tema principal",
+        title: "",
         icon: "📖",
 
         content: `
           <p>
-            Contenido del tema 1 de la tarea 3.
+            .
           </p>
         `
       }
@@ -555,12 +924,12 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
     topics: [
 
       {
-        title: "Tema principal",
+        title: "",
         icon: "📖",
 
         content: `
           <p>
-            Contenido del tema 1 de la tarea 4.
+          .
           </p>
         `
       }
@@ -571,6 +940,12 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
 
 };
 
+// Ejercicios para tareas Pedagogicas- 
+
+const pedagogicas={
+
+  
+}
 
 
 /* =====================================================
@@ -579,7 +954,7 @@ elementos se conocen comúnmente como archivos residuales, estos deben de elemin
 
 const subjectNames = {
 
-  tarea_1: "Tarea 1 - Software y Firmas Digitales",
+  tarea_1: "Tarea 1 - Software.",
 
   tarea_2: "Tarea 2",
 
@@ -587,13 +962,33 @@ const subjectNames = {
 
   tarea_4: "Tarea 4"
 
+
+  
+
+
+
 };
+
+
+const exerciseStatus = { 
+  tarea_1: true, 
+  tarea_2: true, 
+  tarea_3:false, 
+  tarea_4: false
+};
+
+
+
 
 
 
 /* =====================================================
    ELEMENTOS HTML
 ===================================================== */
+
+//imagenes
+
+//
 
 const loginSection =
   document.getElementById("loginSection");
@@ -776,6 +1171,12 @@ contentBtn.addEventListener("click", () => {
 
 exerciseBtn.addEventListener("click", () => {
 
+  if(!exerciseStatus[currentSubject]){
+    alert(
+      "Los ejercicios de esta actividad aún no están Habilidatos."
+    );
+    return;
+  }
   startQuiz(
     currentSubject
   );
@@ -967,6 +1368,53 @@ function openTask(subject) {
     .getElementById("taskMenuTitle")
     .textContent =
     subjectNames[subject];
+
+
+    // estados de ejercicios. 
+
+    const enabled =
+    exerciseStatus[subject];
+
+
+  if (enabled) {
+
+    exerciseBtn.disabled = false;
+
+    exerciseBtn.classList.remove(
+      "exercise-disabled"
+    );
+
+    exerciseBtn.innerHTML = `
+      <span class="option-icon">✏️</span>
+
+      <h3>Ejercicios</h3>
+
+      <p>
+        Responde las preguntas interactivas.
+      </p>
+    `;
+
+  } else {
+
+    exerciseBtn.disabled = true;
+
+    exerciseBtn.classList.add(
+      "exercise-disabled"
+    );
+
+    exerciseBtn.innerHTML = `
+      <span class="option-icon">🔒</span>
+
+      <h3>Ejercicios</h3>
+
+      <p>
+        Los ejercicios aún no están habilitados.
+      </p>
+    `;
+
+  }
+
+
 
 }
 
@@ -1695,7 +2143,7 @@ function renderHistory() {
 
   doc.setFont("helvetica", "bold");
 
-  doc.setFontSize(13);
+  doc.setFontSize(18);
 
   doc.text(
     "Liceo Nueva Generación",
@@ -1707,9 +2155,9 @@ function renderHistory() {
   doc.setFontSize(11);
 
   doc.text(
-    `Grado: ${attempt.grade}`,
+    `Curso: T.I.C. I`,
     20, 
-    27
+    26    //27
 
   );
 
@@ -1717,9 +2165,9 @@ function renderHistory() {
 
   doc.setFontSize(11);
   doc.text(
-    `Clave: ${attempt.code}`,
+    `Nombre: ${attempt.name}`,
     20, 
-    34
+    30 //34
 
   );
 
@@ -1728,9 +2176,21 @@ function renderHistory() {
   doc.setFontSize(11);
 
   doc.text(
-    `Profesor: ${attempt.teacher}`,
+    `Grado: ${attempt.grade}`,
     20, 
-    38
+    34 //38
+  );
+
+  doc.text(
+    `Clave: ${attempt.code}`,
+    20,
+    38  //42
+  );
+
+   doc.text(
+    `Profesor: ${attempt.teacher}`,
+    20,
+    42  //42
   );
 
   // logo
@@ -1770,7 +2230,7 @@ try {
     145, // posición horizontal
     12,  // posición vertical
     40,  // ancho
-    30   // alto
+    28   // alto
   );
 
 
@@ -1786,13 +2246,13 @@ try {
   doc.setLineWidth(0.4);
   doc.line(
     20, 
-    55, 
-    100, 
-    55
+    46,    //55, 
+    190, 
+    46
 
   );
 
-  y = 70;
+  y = 54; //70 
 
   // ejercicios
 
@@ -1809,7 +2269,7 @@ try {
     y
   );
 
-  y += 12;
+  y += 12; //12
 
 
 
@@ -1820,22 +2280,23 @@ try {
   doc.setFontSize(11);
 
 
-  doc.text(
-    `Alumno: ${attempt.name}`,
-    20,
-    y
-  );
+ //doc.text(
+   // `Alumno: ${attempt.name}`,
+    //20,
+    //y
+ // );
 
-  y += 7;
+  //y += 7;
 
 
-  doc.text(
-    `Grado: ${attempt.grade}`,
-    20,
-    y
-  );
+  //doc.text(
+    //`Grado: ${attempt.grade}`,
+    //20,
+    //y
+  //);
 
-  y += 7;
+
+ // y += 7;
 
 
   doc.text(
@@ -1868,14 +2329,14 @@ try {
   y += 12;
 
 
-  /* Línea divisoria */
+  /* Línea divisoria 
 
   doc.line(
     20,
-    y,
+    50, // y
     190,
     y
-  );
+  );*/  
 
 
   y += 10;
