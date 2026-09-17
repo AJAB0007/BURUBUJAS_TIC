@@ -1085,6 +1085,23 @@ const integrativeExercises = {
 
       question:
         "Escribe cuatro riesgos de descargar programas de fuentes desconocidas y una medida preventiva para cada uno."
+    },
+
+    {
+      type: "comparison",
+
+      title:
+        "Escribe cinco programas que conozcas y clasifícalos como software de sistema, aplicación o programación.",
+
+      columns: [
+        "Software.",
+        "Ejemplos."
+      ],
+      rows: [
+        "De Sistema.",
+        "De Aplicación.",
+        "De Programación."
+      ]
     }
 
   ],
