@@ -8,6 +8,8 @@ const openai = new OpenAI({
 
 export default async function handler(req, res) {
 
+  console.log("CHAT.JS NUEVO FUNCIONANDO");
+
   res.setHeader(
     "Access-Control-Allow-Origin",
     "*"
@@ -34,7 +36,6 @@ export default async function handler(req, res) {
       error:"Método no permitido"
     });
   }
-
 
 
   try {
