@@ -1,0 +1,10 @@
+{
+
+    
+  "name": "burbujas-tic",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "openai": "^7.17.0"
+  }
+}

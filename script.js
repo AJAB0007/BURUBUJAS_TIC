@@ -110,7 +110,7 @@ const exercises = {
       answer: 1
     },
     {
-      question: "¿Cuál describe mejor el propósito estudiado de la criptografía?",
+      question: "¿Cuál describe mejor el propósi|to estudiado de la criptografía?",
       options: [
          "Incrementar la velocidad del procesador.",
          "Proteger información y comunicaciones mediante técnicas matemáticas, algoritmos y claves.", 
@@ -1174,8 +1174,215 @@ const exerciseStatus = {
 
 
 
+/*=================================
+asistente BURBUJITAI
+===================================*/
+
+const aiButton =
+  document.getElementById("aiButton");
+
+const aiChat =
+  document.getElementById("aiChat");
+
+const aiClose =
+  document.getElementById("aiClose");
+
+const aiSend =
+  document.getElementById("aiSend");
+
+const aiInput =
+  document.getElementById("aiInput");
+
+const aiMessages =
+  document.getElementById("aiMessages");
 
 
+aiButton.addEventListener("click", () => {
+
+  aiChat.classList.remove("hidden");
+
+});
+
+
+aiClose.addEventListener("click", () => {
+
+  aiChat.classList.add("hidden");
+
+});
+
+
+aiSend.addEventListener("click", sendAIMessage);
+
+
+async function sendAIMessage() {
+
+  const question =
+    aiInput.value.trim();
+
+
+  if (!question) {
+    return;
+  }
+
+
+  // Mostrar pregunta
+  const userMessage =
+    document.createElement("div");
+
+  userMessage.className =
+    "ai-message user";
+
+  userMessage.textContent =
+    question;
+
+  aiMessages.appendChild(
+    userMessage
+  );
+
+
+  aiInput.value = "";
+
+
+  // Mensaje mientras responde
+  const botMessage =
+    document.createElement("div");
+
+  botMessage.className =
+    "ai-message bot";
+
+  botMessage.textContent =
+    "Pensando...";
+
+  aiMessages.appendChild(
+    botMessage
+  );
+
+
+  aiMessages.scrollTop =
+    aiMessages.scrollHeight;
+
+
+  try {
+
+    /*
+      Después reemplazaremos esta URL
+      por la dirección real de Vercel.
+    */
+
+    const response =
+      await fetch(
+        "https://burubujas-tic-7rie-fzhprzgcl-burburjas.vercel.app",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json"
+          },
+
+          body: JSON.stringify({
+
+            message:
+              question,
+
+            context:
+              getAIContext()
+
+          })
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        data.error ||
+        "Error del servidor"
+      );
+
+    }
+
+
+    botMessage.textContent =
+      data.answer;
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    botMessage.textContent =
+      "⚠️ No pude conectarme con el asistente. Intenta nuevamente.";
+
+  }
+
+
+  aiMessages.scrollTop =
+    aiMessages.scrollHeight;
+
+}
+
+
+/*=========================
+contexto de la tarea
+========================*/
+
+function getAIContext() {
+
+  if (
+    currentSubject &&
+    contents[currentSubject]
+  ) {
+
+    const task =
+      contents[currentSubject];
+
+
+    const text =
+      task.topics
+        .map(topic => {
+
+          // Quitamos las etiquetas HTML
+          const temp =
+            document.createElement("div");
+
+          temp.innerHTML =
+            topic.content;
+
+
+          return `
+Tema: ${topic.title}
+
+${temp.innerText}
+          `;
+
+        })
+        .join("\n\n");
+
+
+    return `
+Curso: T.I.C. I
+
+Tarea actual:
+${task.title}
+
+Contenido:
+${text}
+    `;
+
+  }
+
+
+  return `
+Curso: T.I.C. I.
+El alumno actualmente no tiene una tarea abierta.
+  `;
+
+}
 
 /* =====================================================
    ELEMENTOS HTML

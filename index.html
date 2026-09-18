@@ -10,6 +10,57 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+
+<!-- BOTÓN FLOTANTE DE IA //Asistente IA-->
+
+<button id="aiButton" class="ai-button">
+  🤖 BURBUJITAI      
+</button>
+
+
+<!-- VENTANA DEL ASISTENTE -->
+
+<div id="aiChat" class="ai-chat hidden">
+
+  <div class="ai-header">
+
+    <div>
+      <strong>🤖 Asistente IA</strong>
+      <p>Consulta tus dudas del curso</p>
+    </div>
+
+    <button id="aiClose">
+      ✕
+    </button>
+
+  </div>
+
+
+  <div id="aiMessages" class="ai-messages">
+
+    <div class="ai-message bot">
+      ¡Hola! 👋 Soy el asistente de T.I.C. I
+      ¿En qué puedo ayudarte?
+    </div>
+
+  </div>
+
+
+  <div class="ai-input-area">
+
+    <textarea
+      id="aiInput"
+      placeholder="Escribe tu pregunta..."
+    ></textarea>
+
+    <button id="aiSend">
+      Enviar
+    </button>
+
+  </div>
+
+</div>
+
 <body>
 
   <!-- ENCABEZADO -->

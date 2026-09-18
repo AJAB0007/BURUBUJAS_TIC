@@ -14,7 +14,170 @@
   --border: #dbe2ea;
 }
 
+/* ============================== */
+/* ASISTENTE IA */
+/* ============================== */
 
+.ai-button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+
+  background: var(--primary);
+  color: white;
+
+  padding: 14px 20px;
+
+  border-radius: 50px;
+  border: none;
+
+  font-weight: bold;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+  z-index: 1000;
+}
+
+.ai-button:hover {
+  background: var(--primary-dark);
+}
+
+
+.ai-chat {
+  position: fixed;
+
+  right: 25px;
+  bottom: 90px;
+
+  width: 380px;
+  height: 520px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  z-index: 1000;
+}
+
+
+.ai-header {
+  background: var(--primary);
+  color: white;
+
+  padding: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ai-header p {
+  margin: 3px 0 0;
+  font-size: 12px;
+}
+
+
+#aiClose {
+  background: transparent;
+  color: white;
+  font-size: 20px;
+}
+
+
+.ai-messages {
+  flex: 1;
+
+  padding: 15px;
+
+  overflow-y: auto;
+
+  background: #f8fafc;
+}
+
+
+.ai-message {
+  padding: 10px 12px;
+
+  border-radius: 12px;
+
+  margin-bottom: 10px;
+
+  max-width: 85%;
+
+  line-height: 1.4;
+}
+
+
+.ai-message.bot {
+  background: #eef2ff;
+}
+
+
+.ai-message.user {
+  background: var(--primary);
+  color: white;
+
+  margin-left: auto;
+}
+
+
+.ai-input-area {
+  display: flex;
+  gap: 8px;
+
+  padding: 12px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.ai-input-area textarea {
+  flex: 1;
+
+  resize: none;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  border: 1px solid var(--border);
+
+  font-family: inherit;
+}
+
+
+#aiSend {
+  background: var(--primary);
+
+  color: white;
+
+  padding: 10px 15px;
+
+  border-radius: 10px;
+
+  font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+
+  .ai-chat {
+    width: calc(100% - 30px);
+
+    height: 70vh;
+
+    right: 15px;
+    bottom: 85px;
+  }
+
+}
 
 body {
   margin: 0;
