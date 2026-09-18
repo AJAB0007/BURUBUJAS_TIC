@@ -1269,29 +1269,23 @@ async function sendAIMessage() {
       por la dirección real de Vercel.
     */
 
-    const response =
-      await fetch(
-        "https://burubujas-tic-7rie-fzhprzgcl-burburjas.vercel.app",
-        {
-          method: "POST",
+    const response = await fetch(
+  "https://burbujas-tic-7rie.vercel.app/api/chat",
+  {
+    method: "POST",
 
-          headers: {
-            "Content-Type":
-              "application/json"
-          },
+    headers: {
+      "Content-Type": "application/json"
+    },
 
-          body: JSON.stringify({
-
-            message:
-              question,
-
-            context:
-              getAIContext()
-
-          })
-        }
-      );
-
+    body: JSON.stringify({
+      message: question,
+      topicTitle: currentAITopic.title,
+      topicContent: currentAITopic.content,
+      studentId: studentId
+    })
+  }
+);
 
     const data =
       await response.json();
