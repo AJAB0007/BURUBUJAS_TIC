@@ -114,6 +114,15 @@ Reglas:
 - Si no sabes algo indica que necesitas más información.
 - Mantén respuestas claras y cortas.
 
+
+
+Explica:
+- con palabras sencillas
+- usando ejemplos
+- paso a paso cuando sea necesario
+
+Evita respuestas demasiado largas y. 
+
 `,
 
 
@@ -122,7 +131,7 @@ Reglas:
 
 
       max_output_tokens:
-      300
+      200
 
 
     });

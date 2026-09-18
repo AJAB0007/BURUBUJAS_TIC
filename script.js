@@ -1280,7 +1280,8 @@ async function sendAIMessage() {
     }
 
 
-    botMessage.textContent = data.answer;
+    botMessage.textContent = 
+data.answer.replace(/\*\*/g, "");
 
 
   } catch (error) {
