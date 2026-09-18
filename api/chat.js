@@ -9,13 +9,10 @@ const openai = new OpenAI({
 export default async function handler(req, res) {
 
 
-  // ==========================
-  // CONFIGURACIÓN CORS
-  // ==========================
-
+  // CORS
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://ajab0007.github.io"
+    "*"
   );
 
   res.setHeader(
@@ -29,147 +26,65 @@ export default async function handler(req, res) {
   );
 
 
-  // Respuesta para verificación CORS
-
   if (req.method === "OPTIONS") {
-
-    return res.status(204).end();
-
+    return res.status(200).end();
   }
 
-
-
-  // ==========================
-  // SOLO PERMITIR POST
-  // ==========================
 
   if (req.method !== "POST") {
 
     return res.status(405).json({
-
-      error:
-      "Método no permitido."
-
+      error: "Método no permitido"
     });
 
   }
 
 
-
   try {
 
-
-    // ==========================
-    // RECIBIR PREGUNTA
-    // ==========================
+    const { message } = req.body;
 
 
-    const {
-      message
-    } = req.body;
+    const response =
+      await openai.responses.create({
 
+        model: "gpt-5.6-luna",
 
+        instructions: `
+Eres BURBUJITAI, un asistente educativo del curso T.I.C.
 
-    if (!message) {
+Responde en español sencillo.
+Explica con ejemplos.
+Ayuda solamente con temas académicos.
+`,
 
+        input: message,
 
-      return res.status(400).json({
-
-        error:
-        "No se recibió ninguna pregunta."
+        max_output_tokens: 300
 
       });
 
 
-    }
-
-
-
-    // ==========================
-    // CONSULTAR OPENAI
-    // ==========================
-
-
-    const response =
-    await openai.responses.create({
-
-
-      model:
-      "gpt-5.6-luna",
-
-
-      instructions: `
-
-Eres BURBUJITAI, un asistente educativo
-para estudiantes del curso T.I.C.
-
-Tu función es ayudar con dudas académicas.
-
-Reglas:
-
-- Responde siempre en español.
-- Explica de forma sencilla.
-- Usa ejemplos cuando sea necesario.
-- No inventes información.
-- Si no sabes algo indica que necesitas más información.
-- Mantén respuestas claras y cortas.
-
-
-
-Explica:
-- con palabras sencillas
-- usando ejemplos
-- paso a paso cuando sea necesario
-
-Evita respuestas demasiado largas y. 
-
-`,
-
-
-      input:
-      message,
-
-
-      max_output_tokens:
-      200
-
-
-    });
-
-
-
-    // ==========================
-    // DEVOLVER RESPUESTA
-    // ==========================
-
-
     return res.status(200).json({
 
-      answer:
-      response.output_text
+      answer: response.output_text
 
     });
-
 
 
   } catch(error) {
 
 
-    console.error(
-      "Error OpenAI:",
-      error
-    );
+    console.error(error);
 
 
     return res.status(500).json({
 
-      error:
-      "Error al consultar el asistente."
+      error: "Error del servidor"
 
     });
 
 
   }
-
 
 }
