@@ -8,8 +8,6 @@ const openai = new OpenAI({
 
 export default async function handler(req, res) {
 
-
-  // CORS
   res.setHeader(
     "Access-Control-Allow-Origin",
     "*"
@@ -32,12 +30,11 @@ export default async function handler(req, res) {
 
 
   if (req.method !== "POST") {
-
     return res.status(405).json({
-      error: "Método no permitido"
+      error:"Método no permitido"
     });
-
   }
+
 
 
   try {
