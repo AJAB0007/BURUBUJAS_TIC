@@ -1251,8 +1251,7 @@ async function sendAIMessage() {
 
 
   try {
-
-    const response = await fetch(
+const response = await fetch(
   "https://burbujas-tic-7rie.vercel.app/api/chat",
   {
     method: "POST",
@@ -1260,7 +1259,7 @@ async function sendAIMessage() {
     headers: {
       "Content-Type": "application/json"
     },
-  
+
     body: JSON.stringify({
       message: question
     })
@@ -1268,7 +1267,11 @@ async function sendAIMessage() {
 );
 
 
-    const data = await response.json();
+   const text = await response.text();
+
+console.log("Respuesta Vercel:", text);
+
+const data = JSON.parse(text);
 
 
     if (!response.ok) {
@@ -1281,7 +1284,7 @@ async function sendAIMessage() {
 
 
     botMessage.textContent = 
-data.answer.replace(/\*\*/g, "");
+data.answer || "No hubo respuesta";
 
 
   } catch (error) {
