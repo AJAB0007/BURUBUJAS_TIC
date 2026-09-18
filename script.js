@@ -1216,93 +1216,71 @@ aiSend.addEventListener("click", sendAIMessage);
 
 async function sendAIMessage() {
 
-  const question =
-    aiInput.value.trim();
-
+  const question = aiInput.value.trim();
 
   if (!question) {
     return;
   }
 
+  // Mostrar mensaje del alumno
+  const userMessage = document.createElement("div");
 
-  // Mostrar pregunta
-  const userMessage =
-    document.createElement("div");
+  userMessage.className = "ai-message user";
 
-  userMessage.className =
-    "ai-message user";
+  userMessage.textContent = question;
 
-  userMessage.textContent =
-    question;
-
-  aiMessages.appendChild(
-    userMessage
-  );
-
+  aiMessages.appendChild(userMessage);
 
   aiInput.value = "";
 
 
-  // Mensaje mientras responde
-  const botMessage =
-    document.createElement("div");
+  // Mostrar mensaje temporal de la IA
+  const botMessage = document.createElement("div");
 
-  botMessage.className =
-    "ai-message bot";
+  botMessage.className = "ai-message bot";
 
-  botMessage.textContent =
-    "Pensando...";
+  botMessage.textContent = "🤖 Pensando...";
 
-  aiMessages.appendChild(
-    botMessage
-  );
+  aiMessages.appendChild(botMessage);
+
+  aiMessages.scrollTop = aiMessages.scrollHeight;
 
 
-  aiMessages.scrollTop =
-    aiMessages.scrollHeight;
+  // Desactivar botón mientras responde
+  aiSend.disabled = true;
 
 
   try {
 
-    /*
-      Después reemplazaremos esta URL
-      por la dirección real de Vercel.
-    */
-
     const response = await fetch(
-  "https://burbujas-tic-7rie.vercel.app/api/chat",
-  {
-    method: "POST",
+      "/api/chat",
+      {
+        method: "POST",
 
-    headers: {
-      "Content-Type": "application/json"
-    },
+        headers: {
+          "Content-Type": "application/json"
+        },
 
-    body: JSON.stringify({
-      message: question,
-      topicTitle: currentAITopic.title,
-      topicContent: currentAITopic.content,
-      studentId: studentId
-    })
-  }
-);
+        body: JSON.stringify({
+          message: question
+        })
+      }
+    );
 
-    const data =
-      await response.json();
+
+    const data = await response.json();
 
 
     if (!response.ok) {
 
       throw new Error(
-        data.error ||
-        "Error del servidor"
+        data.error || "Error del servidor."
       );
 
     }
 
 
-    botMessage.textContent =
-      data.answer;
+    botMessage.textContent = data.answer;
 
 
   } catch (error) {
@@ -1311,6 +1289,10 @@ async function sendAIMessage() {
 
     botMessage.textContent =
       "⚠️ No pude conectarme con el asistente. Intenta nuevamente.";
+
+  } finally {
+
+    aiSend.disabled = false;
 
   }
 
