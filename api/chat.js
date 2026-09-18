@@ -1,14 +1,21 @@
 import OpenAI from "openai";
 
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
+
 export default async function handler(req, res) {
+
+
+  // ==========================
+  // CONFIGURACIÓN CORS
+  // ==========================
 
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://ajab0007.github.io"
+    "*"
   );
 
   res.setHeader(
@@ -21,64 +28,139 @@ export default async function handler(req, res) {
     "Content-Type"
   );
 
+
+  // Respuesta para verificación CORS
+
   if (req.method === "OPTIONS") {
+
     return res.status(204).end();
+
   }
 
-  if (req.method !== "POST") {
-    return res.status(405).json({
-      error: "Método no permitido."
-    });
-  }
+
+
+  // ==========================
+  // SOLO PERMITIR POST
+  // ==========================
 
   if (req.method !== "POST") {
+
     return res.status(405).json({
-      error: "Método no permitido."
+
+      error:
+      "Método no permitido."
+
     });
+
   }
+
+
 
   try {
 
-    const { message } = req.body || {};
+
+    // ==========================
+    // RECIBIR PREGUNTA
+    // ==========================
+
+
+    const {
+      message
+    } = req.body;
+
+
 
     if (!message) {
+
+
       return res.status(400).json({
-        error: "Debes enviar una pregunta."
+
+        error:
+        "No se recibió ninguna pregunta."
+
       });
+
+
     }
 
-    const response = await openai.responses.create({
-      model: "gpt-5.6-luna",
 
-      reasoning: {
-        effort: "none"
-      },
+
+    // ==========================
+    // CONSULTAR OPENAI
+    // ==========================
+
+
+    const response =
+    await openai.responses.create({
+
+
+      model:
+      "gpt-5.6-luna",
+
 
       instructions: `
-Eres un asistente educativo para estudiantes de T.I.C.
 
-Responde en español claro y sencillo.
-Explica de forma breve.
-No inventes información.
-      `,
+Eres BURBUJITAI, un asistente educativo
+para estudiantes del curso T.I.C.
 
-      input: message,
+Tu función es ayudar con dudas académicas.
 
-      max_output_tokens: 300
+Reglas:
+
+- Responde siempre en español.
+- Explica de forma sencilla.
+- Usa ejemplos cuando sea necesario.
+- No inventes información.
+- Si no sabes algo indica que necesitas más información.
+- Mantén respuestas claras y cortas.
+
+`,
+
+
+      input:
+      message,
+
+
+      max_output_tokens:
+      300
+
+
     });
+
+
+
+    // ==========================
+    // DEVOLVER RESPUESTA
+    // ==========================
+
 
     return res.status(200).json({
-      answer: response.output_text
+
+      answer:
+      response.output_text
+
     });
 
-  } catch (error) {
 
-    console.error("Error OpenAI:", error);
+
+  } catch(error) {
+
+
+    console.error(
+      "Error OpenAI:",
+      error
+    );
+
 
     return res.status(500).json({
-      error: "No se pudo consultar la IA."
+
+      error:
+      "Error al consultar el asistente."
+
     });
 
+
   }
+
 
 }
