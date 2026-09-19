@@ -1249,6 +1249,7 @@ async function sendAIMessage() {
   // Desactivar botón mientras responde
   aiSend.disabled = true;
 
+  console.log("Pregunta enviada:", question);
 
   try {
 const response = await fetch(
@@ -1267,9 +1268,16 @@ const response = await fetch(
 );
 
 
+   console.log("Respuesta recibida:", response.status);
+
+
    const text = await response.text();
 
-console.log("Respuesta Vercel:", text);
+//console.log("Respuesta Vercel:", text);
+
+console.log("Contenido:", text);
+
+
 
 const data = JSON.parse(text);
 
