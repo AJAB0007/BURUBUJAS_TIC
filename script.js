@@ -1249,9 +1249,14 @@ async function sendAIMessage() {
   // Desactivar botón mientras responde
   aiSend.disabled = true;
 
-  console.log("Pregunta enviada:", question);
+  
+  
 
   try {
+console.log("ANTES DEL FETCH");
+console.log("Pregunta enviada:", question);
+
+
 const response = await fetch(
   "https://burbujas-tic-7rie.vercel.app/api/chat",
   {
@@ -1273,7 +1278,7 @@ const response = await fetch(
 
    const text = await response.text();
 
-//console.log("Respuesta Vercel:", text);
+console.log("Respuesta Vercel:", text);
 
 console.log("Contenido:", text);
 
