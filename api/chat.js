@@ -11,6 +11,8 @@ export default async function handler(req, res) {
   // =========================
   const origin = req.headers.origin;
 
+
+
   const allowedOrigins = [
     "http://localhost:5500",
     "https://ajab0007.github.io"
@@ -61,7 +63,7 @@ export default async function handler(req, res) {
 
     const response = await openai.responses.create({
 
-      model: "gpt-5.6-luna",
+       model: "gpt-4o-mini",
 
       instructions: `
 Eres BURBUJITAI, un asistente educativo del curso T.I.C. I.
