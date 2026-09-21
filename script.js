@@ -1258,7 +1258,7 @@ try {
   console.log("Pregunta enviada:", question);
 
   const response = await fetch(
-    "https://burbujas-tic-7rie.vercel.app/api/chat",
+    "https://burubujas-tic-7rie.vercel.app/api/chat",
     {
       method: "POST",
 
