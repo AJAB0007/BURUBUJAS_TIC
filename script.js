@@ -1252,66 +1252,58 @@ async function sendAIMessage() {
   
   
 
-  try {
-console.log("ANTES DEL FETCH");
-console.log("Pregunta enviada:", question);
+try {
 
+  console.log("ANTES DEL FETCH");
+  console.log("Pregunta enviada:", question);
 
-const response = await fetch(
-  "https://burbujas-tic-7rie.vercel.app/api/chat",
-  {
-    method: "POST",
+  const response = await fetch(
+    "https://burbujas-tic-7rie.vercel.app/api/chat",
+    {
+      method: "POST",
 
-    headers: {
-      "Content-Type": "application/json"
-    },
+      headers: {
+        "Content-Type": "application/json"
+      },
 
-    body: JSON.stringify({
-      message: question
-    })
-  }
-);
-
-
-   console.log("Respuesta recibida:", response.status);
-
-
-   const text = await response.text();
-
-console.log("Respuesta Vercel:", text);
-
-console.log("Contenido:", text);
-
-
-
-const data = JSON.parse(text);
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        data.error || "Error del servidor."
-      );
-
+      body: JSON.stringify({
+        message: question
+      })
     }
+  );
 
+  console.log("Respuesta recibida:", response.status);
 
-    botMessage.textContent = 
-data.answer || "No hubo respuesta";
+  const text = await response.text();
 
+  console.log("Respuesta Vercel:", text);
 
-  } catch (error) {
+  const data = JSON.parse(text);
 
-    console.error(error);
-
-    botMessage.textContent =
-      "⚠️ No pude conectarme con el asistente. Intenta nuevamente.";
-
-  } finally {
-
-    aiSend.disabled = false;
-
+  if (!response.ok) {
+    throw new Error(
+      data.error || "Error del servidor."
+    );
   }
+
+  botMessage.textContent =
+    data.answer || "No hubo respuesta";
+
+} catch (error) {
+
+  console.error("ERROR CHAT:", error);
+
+  botMessage.textContent =
+    "⚠️ No pude conectarme con el asistente. Intenta nuevamente.";
+
+} finally {
+
+  aiSend.disabled = false;
+
+}
+
+aiMessages.scrollTop =
+  aiMessages.scrollHeight;
 
 
   aiMessages.scrollTop =
