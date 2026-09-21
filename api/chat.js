@@ -9,13 +9,12 @@ export default async function handler(req, res) {
   // =========================
   // CORS
   // =========================
+  const origin = req.headers.origin;
 
   const allowedOrigins = [
     "http://localhost:5500",
     "https://ajab0007.github.io"
   ];
-
-  const origin = req.headers.origin;
 
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
@@ -31,25 +30,32 @@ export default async function handler(req, res) {
     "Content-Type"
   );
 
-  // Petición previa del navegador
+  // =========================
+  // PETICIÓN OPTIONS
+  // =========================
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  // Solo permitir POST
+  // =========================
+  // SOLO POST
+  // =========================
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Método no permitido"
     });
   }
 
+  // =========================
+  // PROCESAR MENSAJE
+  // =========================
   try {
 
     const { message } = req.body;
 
     if (!message) {
       return res.status(400).json({
-        error: "No se recibió ninguna pregunta."
+        error: "No se recibió ningún mensaje."
       });
     }
 
@@ -60,18 +66,22 @@ export default async function handler(req, res) {
       instructions: `
 Eres BURBUJITAI, un asistente educativo del curso T.I.C. I.
 
-Tu función es ayudar a los estudiantes a comprender
-los temas del curso.
+Ayuda a los estudiantes con temas relacionados con:
+- Software
+- Tipos de software
+- Instalación de software
+- Seguridad de la información
+- Firma digital
+- Criptografía
+- Certificados digitales
 
-Responde de manera clara, sencilla y educativa.
-
-No realices las tareas completas por el estudiante.
-Ayúdalo a comprender el procedimiento.
-
-Utiliza ejemplos cuando sea necesario.
+Responde en español.
+Explica de forma clara, sencilla y educativa.
+Si el estudiante pregunta algo relacionado con sus tareas, ayúdalo paso a paso.
 `,
 
       input: message
+
     });
 
     return res.status(200).json({
@@ -85,6 +95,5 @@ Utiliza ejemplos cuando sea necesario.
     return res.status(500).json({
       error: "Error al comunicarse con el asistente."
     });
-
   }
 }
