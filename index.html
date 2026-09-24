@@ -39,7 +39,7 @@
   <div id="aiMessages" class="ai-messages">
 
     <div class="ai-message bot">
-      ¡Hola! 👋 Soy el asistente de T.I.C. I
+      ¡Hola! 👋 Soy BURBUJITAI el asistente de T.I.C. I
       ¿En qué puedo ayudarte?
     </div>
 
@@ -262,7 +262,7 @@
           </h3>
 
           <p>
-            Próximamente.
+            Macros y Estadística..
           </p>
 
         </button>
@@ -381,6 +381,10 @@
 
         </button>
 
+        <button id="spreadsheetBtn" class="spreadsheet-menu-btn">
+          📊 Hoja de cálculo
+        </button>
+
         <!-- Ejercicios Integradores-->
 
         <button
@@ -414,29 +418,315 @@
 
     </section>
 
-    <!-- EJERCICIOS INTEGRADORES -->
 
-<section
-  id="integrativeSection"
-  class="card hidden">
+  <!-- EXCEL -->
+   <!-- =====================================================
+     TAREA 3 - HOJA DE CÁLCULO
+===================================================== -->
 
-  <div class="integrative-header">
+<section id="spreadsheetSection" class="card hidden">
+
+  <div class="spreadsheet-header">
 
     <div>
-      <p class="subject-label">
-        Actividad integradora
-      </p>
+      <h2>📊 Hoja de cálculo</h2>
 
-      <h2 id="integrativeTitle">
-        Ejercicios Integradores
-      </h2>
+      <p>
+        Practica fórmulas como en Excel.
+      </p>
     </div>
 
+    <button id="spreadsheetBackBtn" class="secondary-btn">
+      ← Volver
+    </button>
+
+  </div>
 
 
+    <!-- BARRA DE HERRAMIENTAS -->
+
+  <div class="spreadsheet-toolbar">
+
+    <button id="addRowBtn" class="primary-btn">
+      ➕ Agregar fila
+    </button>
+
+    <button id="addColumnBtn" class="primary-btn">
+      ➕ Agregar columna
+    </button>
+
+    <button id="clearSheetBtn" class="secondary-btn">
+      🗑️ Limpiar
+    </button>
+
+    <button id="calculateFormulaBtn" class="primary-btn">
+      🧮 Calcular
+    </button>
+
+  </div>
+
+
+  <!-- ÁREA DE LA HOJA -->
+
+  <div class="spreadsheet-wrapper">
+
+    <table id="spreadsheetTable">
+
+      <thead>
+
+        <tr id="spreadsheetHeaderRow">
+
+          <th>Fila</th>
+
+          <th>
+            <input
+              class="column-name"
+              value="A"
+              maxlength="10"
+            >
+          </th>
+
+          <th>
+            <input
+              class="column-name"
+              value="B"
+              maxlength="10"
+            >
+          </th>
+
+          <th>
+            <input
+              class="column-name"
+              value="C"
+              maxlength="10"
+            >
+          </th>
+
+        </tr>
+
+      </thead>
+
+      <tbody id="spreadsheetBody">
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <!-- BARRA DE FÓRMULA -->
+
+  <div class="formula-area">
+
+    <label for="formulaInput">
+      Fórmula
+    </label>
+
+    <div class="formula-row">
+
+      <input
+        id="formulaInput"
+        type="text"
+        placeholder="Ejemplo: =SUMA(A1:B5)"
+      >
+
+      <button id="applyFormulaBtn">
+        ✓ Aplicar
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- RESULTADO -->
+
+  <div class="spreadsheet-result">
+
+    <span>Resultado:</span>
+
+    <strong id="formulaResult">
+      -
+    </strong>
+
+  </div>
+
+
+  <!-- FUNCIONES -->
+
+  <div class="formula-help">
+
+    <h3>Funciones disponibles</h3>
+
+    <div class="formula-buttons">
+
+      <button data-formula="SUMA">
+        SUMA
+      </button>
+
+      <button data-formula="PROMEDIO">
+        PROMEDIO
+      </button>
+
+      <button data-formula="MIN">
+        MIN
+      </button>
+
+      <button data-formula="MAX">
+        MAX
+      </button>
+
+      <button data-formula="SI">
+        SI
+      </button>
+
+      <button data-formula="SI_ANIDADO">
+        SI ANIDADO
+      </button>
+
+      <button data-formula="OPERACION">
+        + − × ÷
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRÁFICOS -->
+
+  <div class="chart-area">
+
+  <h3>Gráficos</h3>
+
+  <div class="formula-buttons">
 
     <button
-      id="integrativeBackBtn"
+      id="barChartBtn"
+      type="button">
+      📊 Barras
+    </button>
+
+    <button
+      id="lineChartBtn"
+      type="button">
+      📈 Líneas
+    </button>
+
+    <button
+      id="pieChartBtn"
+      type="button">
+      🍰 Pastel
+    </button>
+
+  </div>
+
+  <button
+  id="spreadsheetPdfBtn"
+  class="primary-btn"
+  type="button">
+
+  📄 Generar PDF del ejercicio
+
+</button>
+
+  <!-- ÁREA DONDE SE DIBUJARÁ EL GRÁFICO -->
+  <div class="chart-container">
+
+    <canvas id="spreadsheetChart"></canvas>
+
+  </div>
+
+</div>
+
+
+
+</section> <!-- ✅ cierre de spreadsheetSection -->
+
+
+<!-- ========================================= -->
+<!-- EJERCICIOS PRÁCTICOS -->
+<!-- ========================================= -->
+
+<section
+  id="practicalExercisesSection"
+  class="card hidden">
+
+  <div class="quiz-header">
+
+    <div>
+
+      <p
+        id="practicalExercisesSubject"
+        class="subject-label">
+      </p>
+
+      <h2>
+        Ejercicios prácticos
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <div id="practicalExercisesContainer">
+  </div>
+
+
+  <div class="quiz-actions">
+
+    <button
+      id="practicalExercisesBackBtn"
+      class="ghost">
+
+      Volver
+
+    </button>
+
+    <button
+  id="practicalExercisesPdfBtn"
+  class="primary">
+
+  📄 Generar PDF
+
+</button>
+
+  </div>
+
+</section>
+<!-- ========================================= -->
+<!-- EJERCICIOS PRÁCTICOS -->
+<!-- ========================================= -->
+
+<section
+  id="practicalExercisesSection"
+  class="card hidden">
+
+  <div class="quiz-header">
+
+    <div>
+
+      <p
+        id="practicalExercisesSubject"
+        class="subject-label">
+      </p>
+
+      <h2>
+        Ejercicios prácticos
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div id="practicalExercisesContainer">
+  </div>
+
+  <div class="quiz-actions">
+
+    <button
+      id="practicalExercisesBackBtn"
       class="ghost">
 
       Volver
@@ -445,38 +735,7 @@
 
   </div>
 
-
-  <p class="muted">
-    Responde las siguientes actividades con tus propias palabras.
-  </p>
-
-
-  <div id="integrativeContainer">
-    <!-- JavaScript creará aquí las actividades -->
-  </div>
-
-
-  <button
-    id="saveIntegrativeBtn"
-    class="primary">
-
-    Guardar respuestas
-
-  </button>
-
-      <button
-    id="integrativePdfBtn"
-    class="primary">
-    📄 Generar PDF
-  </button>
-
-
-  <p
-    id="integrativeMessage"
-    class="integrative-message">
-  </p>
-
-</section>
+ </section>
 
 
 
@@ -536,7 +795,7 @@
       </div>
 
 
-    </section>
+ </section>
 
 
 
@@ -633,6 +892,7 @@
 
     </section>
 
+   
 
 
     <!-- ============================= -->
@@ -719,7 +979,7 @@
     <p>
       Josué Alvarez - Ingenieria en Sistemas.
     </p>
-    <p>Aula Interactiva | BURBUJAS | Version 1.1.2. </p>
+    <p>Aula Interactiva | BURBUJAS | Version BETA 1.1.3. </p>
 
 
 
@@ -739,7 +999,9 @@ style="display: none;"
   <!-- JAVASCRIPT -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="script.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+  <script src="script.js"></script>
+  <section id="taskMenuSection" class="card hidden"></section>
 </body>
 
 </html>

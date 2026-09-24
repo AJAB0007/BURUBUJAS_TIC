@@ -169,30 +169,63 @@ const exercises = {
 
   tarea_3: [
     {
-      question: "¿Cuánto es 8 × 7?",
-      options: ["54", "56", "64", "49"],
-      answer: 1
-    },
-    {
-      question: "¿Cuánto es 45 ÷ 5?",
-      options: ["8", "9", "10", "7"],
-      answer: 1
-    },
-    {
-      question: "¿Cuánto es 25 + 18?",
-      options: ["43", "42", "44", "41"],
-      answer: 0
-    },
-    {
-      question: "¿Cuánto es 70 - 26?",
-      options: ["46", "44", "43", "42"],
-      answer: 1
-    },
-    {
-      question: "¿Cuál es la mitad de 100?",
-      options: ["25", "75", "50", "40"],
-      answer: 2
-    }
+    title: "Ejercicio 1 - Ventas mensuales",
+
+    content: `
+      <img
+        src="./imagenes/ejercicio1-t3.png"
+        alt="Ejercicio 1 - Ventas mensuales"
+        class="topic-image"
+      >
+
+      <button
+  class="primary-btn"
+  onclick="openSpreadsheet(0)"
+>
+  📊 Abrir hoja de cálculo
+</button>
+    `
+  },
+
+  {
+    title: "Ejercicio 2 - Gastos mensuales",
+
+    content: `
+      <img
+        src="./imagenes/ejercicio2-t3.png"
+        alt="Ejercicio 2 - Gastos mensuales"
+        class="topic-image"
+      >
+
+      <button
+  class="primary-btn"
+  onclick="openSpreadsheet(1)"
+>
+  📊 Abrir hoja de cálculo
+</button>
+    `
+  },
+
+  {
+    title: "Ejercicio 3 - Calificaciones",
+
+    content: `
+      <img
+        src="./imagenes/ejercicio3-t3.png"
+        alt="Ejercicio 3 - Calificaciones"
+        class="topic-image"
+      >
+
+      <button
+  class="primary-btn"
+  onclick="openSpreadsheet(2)"
+>
+  📊 Abrir hoja de cálculo
+</button>
+    `
+  }
+  
+
   ],
 
 
@@ -986,13 +1019,38 @@ direccion real y no confiar solo en el diseño de la pagina.</p>
     topics: [
 
       {
-        title: "",
+        title: "Automatización de Hojas de Cálculo.",
+        icon: "📖",
+
+        content: `
+          <p>¿Qué son las Macros y los Controles?.
+          </p>
+
+          <li>Imagina que una Macro es como la grabadora de voz de tu teléfono: presionas Grabar, realizas una serie de
+acciones en tu hoja de cálculo (dar formato, borrar celdas, pintar bordes) y luego presionas Detener. Cuando le das
+Play, la computadora repite exactamente esos pasos en un segundo.</li>
+
+<li>Los Controles de Formulario son los botones visibles en tu pantalla que usas para darle "Play" a tus macros con un
+solo clic.</li>>
+
+          <ul></ul>
+        `
+      },
+      {
+        title: " Almacenamiento, Gráficos y Estadística.",
         icon: "📖",
 
         content: `
           <p>
-            .
+           Organizar, Calcular y Graficar.
           </p>
+          <li> 
+Almacenamiento: Es como organizar un armario: cada columna guarda un solo tipo de información (ej. solo
+fechas o solo montos de dinero).</li>
+<li>Estadística: Fórmulas que resumen tus datos rápidamente responder preguntas como: ¿Cuánto gasté en
+promedio? o ¿Cuál fue el gasto más alto?</li>
+
+<li>Gráficos: Dibujos con tus datos para entender los resultados de un vistazo sin leer toda la tabla.</li>
         `
       }
 
@@ -1151,16 +1209,11 @@ const subjectNames = {
 
   tarea_1: "Tarea 1 - Software.",
 
-  tarea_2: "Tarea 2",
+  tarea_2: "Tarea 2 - Contenidos Digitales. ",
 
-  tarea_3: "Tarea 3",
+  tarea_3: "Tarea 3 -  Macros y Estadística.",
 
   tarea_4: "Tarea 4"
-
-
-  
-
-
 
 };
 
@@ -1168,7 +1221,7 @@ const subjectNames = {
 const exerciseStatus = { 
   tarea_1: true, 
   tarea_2: true, 
-  tarea_3:false, 
+  tarea_3: true, 
   tarea_4: false
 };
 
@@ -1467,6 +1520,78 @@ const integrativePdfBtn =
   document.getElementById("integrativePdfBtn");
 
 
+/**
+ * EXCEL
+ */
+
+const spreadsheetSection =
+  document.getElementById("spreadsheetSection");
+
+
+const addColumnBtn =
+  document.getElementById("addColumnBtn");
+
+const createChartBtn =
+  document.getElementById("createChartBtn");
+
+//const pieChartBtn =
+  //document.getElementById("pieChartBtn");
+
+  const addRowBtn =
+  document.getElementById("addRowBtn");
+
+  const spreadsheetPdfBtn =
+  document.getElementById(
+    "spreadsheetPdfBtn"
+  );
+
+  spreadsheetPdfBtn.addEventListener(
+  "click",
+  generateSpreadsheetPDF
+);
+
+const clearSpreadsheetBtn =
+  document.getElementById("clearSpreadsheetBtn");
+
+/*const applyFormulaBtn =
+  document.getElementById("applyFormulaBtn");*/
+
+const calculateFormulaBtn =
+  document.getElementById("calculateFormulaBtn");
+
+const barChartBtn =
+  document.getElementById(
+    "barChartBtn"
+  );
+
+const lineChartBtn =
+  document.getElementById(
+    "lineChartBtn"
+  );
+
+const pieChartBtn =
+  document.getElementById(
+    "pieChartBtn"
+  );
+
+const spreadsheetCanvas =
+  document.getElementById(
+    "spreadsheetChart"
+  );
+
+const formulaInput =
+  document.getElementById("formulaInput");
+
+const formulaResult =
+  document.getElementById("formulaResult");
+
+const spreadsheetTable =
+  document.getElementById("spreadsheetTable");
+
+const spreadsheetHeaderRow =
+  document.querySelector(
+    "#spreadsheetTable thead tr"
+  );
 
 
 /* =====================================================
@@ -1486,6 +1611,27 @@ let answered = false;
 let selectedAnswers = [];
 
 
+/**
+ * EXCEL
+ */
+
+let spreadsheetChartInstance = null;
+
+let currentSpreadsheetExercise = null;
+
+const spreadsheetExerciseData = {
+  0: {},
+  1: {},
+  2: {}
+};
+
+const spreadsheetExerciseCharts = {
+  0: null,
+  1: null,
+  2: null
+};
+
+
 /* =====================================================
    BOTONES
 ===================================================== */
@@ -1501,6 +1647,10 @@ logoutBtn.addEventListener(
   logout
 );
 
+const practicalExercisesPdfBtn =
+  document.getElementById(
+    "practicalExercisesPdfBtn"
+  );
 
 
 
@@ -1508,6 +1658,11 @@ logoutBtn.addEventListener(
   Cuando presionamos Volver desde las preguntas,
   regresamos al menú de la tarea.
 */
+
+practicalExercisesPdfBtn.addEventListener(
+  "click",
+  generatePracticalExercisesPDF
+);
 
 backBtn.addEventListener("click", () => {
 
@@ -1539,38 +1694,1780 @@ homeBtn.addEventListener(
 
 // 
 
-integrativePdfBtn.addEventListener(
-  "click",
-  generateIntegrativePDF
-);
+if (integrativePdfBtn) {
 
-integrativeBtn.addEventListener(
+  integrativePdfBtn.addEventListener(
+    "click",
+    generateIntegrativePDF
+  );
+
+}
+
+if (integrativeBtn) {
+
+  integrativeBtn.addEventListener(
+    "click",
+    () => {
+
+      showIntegrativeExercises(
+        currentSubject
+      );
+
+    }
+  );
+
+}
+
+// volver
+
+if (integrativeBackBtn) {
+
+  integrativeBackBtn.addEventListener(
+    "click",
+    () => {
+
+      integrativeSection.classList.add(
+        "hidden"
+      );
+
+      taskMenuSection.classList.remove(
+        "hidden"
+      );
+
+    }
+  );
+
+}
+
+function generatePracticalExercisesPDF() {
+
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  const practicalExercises =
+    exercises["tarea_3"];
+
+  if (
+    !practicalExercises ||
+    practicalExercises.length === 0
+  ) {
+
+    alert(
+      "No existen ejercicios para generar el PDF."
+    );
+
+    return;
+  }
+
+  // ==============================
+  // ENCABEZADO
+  // ==============================
+
+  doc.setFontSize(20);
+
+  doc.text(
+    "T.I.C. I",
+    105,
+    20,
+    {
+      align: "center"
+    }
+  );
+
+  doc.setFontSize(16);
+
+  doc.text(
+    "Tarea 3 - Ejercicios prácticos",
+    105,
+    30,
+    {
+      align: "center"
+    }
+  );
+
+  doc.setFontSize(11);
+
+  doc.text(
+    "Tecnologías de la Información y la Comunicación I",
+    105,
+    38,
+    {
+      align: "center"
+    }
+  );
+
+  let y = 52;
+
+  // ==============================
+  // EJERCICIOS
+  // ==============================
+
+  practicalExercises.forEach(
+    (exercise, index) => {
+
+      if (index > 0) {
+
+        doc.addPage();
+
+        y = 25;
+
+      }
+
+      doc.setFontSize(15);
+
+      doc.text(
+        exercise.title,
+        20,
+        y
+      );
+
+      y += 10;
+
+      // Buscar imagen dentro del contenido
+
+      const temp =
+        document.createElement("div");
+
+      temp.innerHTML =
+        exercise.content;
+
+      const img =
+        temp.querySelector("img");
+
+      if (img) {
+
+        const imageWidth = 170;
+        const imageHeight = 90;
+
+        doc.addImage(
+          img.src,
+          "PNG",
+          20,
+          y,
+          imageWidth,
+          imageHeight
+        );
+
+        y += imageHeight + 15;
+
+      }
+
+      doc.setFontSize(10);
+
+      doc.text(
+        "Realiza el ejercicio utilizando la hoja de cálculo.",
+        20,
+        y
+      );
+
+    }
+  );
+
+  // ==============================
+  // PIE DE PÁGINA
+  // ==============================
+
+  const totalPages =
+    doc.internal.getNumberOfPages();
+
+  for (
+    let page = 1;
+    page <= totalPages;
+    page++
+  ) {
+
+    doc.setPage(page);
+
+    doc.setFontSize(9);
+
+    doc.text(
+      `T.I.C. I - Tarea 3 | Página ${page} de ${totalPages}`,
+      105,
+      290,
+      {
+        align: "center"
+      }
+    );
+
+  }
+
+  doc.save(
+    "Tarea_3_Ejercicios_Practicos.pdf"
+  );
+}
+
+function openSpreadsheet(exerciseIndex = 0) {
+
+  currentSpreadsheetExercise = exerciseIndex;
+
+  dashboardSection.classList.add("hidden");
+  taskMenuSection.classList.add("hidden");
+  contentSection.classList.add("hidden");
+  quizSection.classList.add("hidden");
+  resultSection.classList.add("hidden");
+  document
+    .getElementById("practicalExercisesSection")
+    .classList.add("hidden");
+
+  spreadsheetSection.classList.remove("hidden");
+
+  createSpreadsheet();
+
+  restoreSpreadsheetData(currentSpreadsheetExercise);
+
+}
+
+
+// CREAR TABLA 
+
+let spreadsheetRows = 5;
+let spreadsheetColumns = 5;
+function createSpreadsheet() {
+
+  spreadsheetHeaderRow.innerHTML = "";
+
+  spreadsheetBody.innerHTML = "";
+
+  const rowHeader = document.createElement("th");
+  rowHeader.textContent = "Fila";
+  spreadsheetHeaderRow.appendChild(rowHeader);
+
+  for (
+    let col = 1;
+    col <= spreadsheetColumns;
+    col++
+  ) {
+
+    const th =
+      document.createElement("th");
+
+    th.textContent =
+      getColumnName(col);
+
+    spreadsheetHeaderRow.appendChild(th);
+
+  }
+
+  for (
+    let row = 1;
+    row <= spreadsheetRows;
+    row++
+  ) {
+
+    const tr =
+      document.createElement("tr");
+
+    const numberCell =
+      document.createElement("td");
+
+    numberCell.textContent = row;
+
+    numberCell.className =
+      "spreadsheet-row-number";
+
+    tr.appendChild(numberCell);
+
+    for (
+      let col = 0;
+      col < spreadsheetColumns;
+      col++
+    ) {
+
+      const td =
+        document.createElement("td");
+
+      td.className =
+        "spreadsheet-td";
+
+      td.dataset.row = row;
+      td.dataset.col = col;
+
+      const input =
+        document.createElement("input");
+
+      input.type = "text";
+
+      input.className =
+        "spreadsheet-cell";
+
+      input.dataset.row = row;
+      input.dataset.col = col;
+
+      // GUARDAR CAMBIOS
+      input.addEventListener(
+        "input",
+        () => {
+
+          saveSpreadsheetData(
+            currentSpreadsheetExercise
+          );
+
+        }
+      );
+
+      td.appendChild(input);
+
+      tr.appendChild(td);
+
+    }
+
+    spreadsheetBody.appendChild(tr);
+
+  }
+
+}
+
+function saveSpreadsheetData(exerciseIndex) {
+
+  if (exerciseIndex === null) {
+    return;
+  }
+
+  const data = {};
+
+  const cells =
+    document.querySelectorAll(
+      ".spreadsheet-cell"
+    );
+
+  cells.forEach(cell => {
+
+    const row =
+      cell.dataset.row;
+
+    const col =
+      cell.dataset.col;
+
+    const key =
+      `${row}_${col}`;
+
+    data[key] =
+      cell.value;
+
+  });
+
+  spreadsheetExerciseData[exerciseIndex] =
+    data;
+}
+
+function restoreSpreadsheetData(exerciseIndex) {
+
+  const data =
+    spreadsheetExerciseData[exerciseIndex];
+
+  if (!data) {
+    return;
+  }
+
+  const cells =
+    document.querySelectorAll(
+      ".spreadsheet-cell"
+    );
+
+  cells.forEach(cell => {
+
+    const row =
+      cell.dataset.row;
+
+    const col =
+      cell.dataset.col;
+
+    const key =
+      `${row}_${col}`;
+
+    if (
+      Object.prototype.hasOwnProperty.call(
+        data,
+        key
+      )
+    ) {
+
+      cell.value =
+        data[key];
+
+    }
+
+  });
+}
+
+
+async function generateSpreadsheetPDF() {
+
+  // Guardar lo que el alumno escribió
+  saveSpreadsheetData(currentSpreadsheetExercise);
+
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF("p", "mm", "a4");
+
+  const exercise =
+    exercises["tarea_3"][currentSpreadsheetExercise];
+
+  if (!exercise) {
+
+    alert("No se encontró el ejercicio.");
+
+    return;
+  }
+
+
+  /* =========================================
+     OBTENER IMAGEN DEL EJERCICIO
+  ========================================= */
+
+  const imagePaths = [
+    "./imagenes/ejercicio1-t3.png",
+    "./imagenes/ejercicio2-t3.png",
+    "./imagenes/ejercicio3-t3.png"
+  ];
+
+  const imagePath =
+    imagePaths[currentSpreadsheetExercise];
+
+
+  // Función para cargar la imagen
+  const loadImage = (src) => {
+
+    return new Promise((resolve, reject) => {
+
+      const img = new Image();
+
+      img.onload = () => resolve(img);
+
+      img.onerror = () =>
+        reject(
+          new Error("No se pudo cargar la imagen.")
+        );
+
+      img.src = src;
+
+    });
+
+  };
+
+
+  let exerciseImage = null;
+
+  try {
+
+    exerciseImage =
+      await loadImage(imagePath);
+
+  } catch (error) {
+
+    console.error(error);
+
+  }
+
+
+  /* =========================================
+     PÁGINA 1
+     ENUNCIADO
+  ========================================= */
+
+  doc.setFontSize(20);
+
+  doc.text(
+    "T.I.C. I",
+    105,
+    20,
+    {
+      align: "center"
+    }
+  );
+
+
+  doc.setFontSize(16);
+
+  doc.text(
+    exercise.title,
+    105,
+    30,
+    {
+      align: "center"
+    }
+  );
+
+
+  doc.setFontSize(10);
+
+  doc.text(
+    "Tecnologías de la Información y la Comunicación I",
+    105,
+    38,
+    {
+      align: "center"
+    }
+  );
+
+
+  // Imagen del ejercicio
+
+  if (exerciseImage) {
+
+    const imageWidth = 175;
+    const imageHeight = 100;
+
+    doc.addImage(
+      exerciseImage,
+      "PNG",
+      17,
+      50,
+      imageWidth,
+      imageHeight
+    );
+
+  }
+
+
+  doc.setFontSize(11);
+
+  doc.text(
+    "Enunciado del ejercicio",
+    20,
+    160
+  );
+
+
+  doc.setFontSize(10);
+
+  const instruction =
+    "Ingresa los datos indicados en el ejercicio, " +
+    "aplica las fórmulas solicitadas y genera el gráfico correspondiente.";
+
+  const instructionLines =
+    doc.splitTextToSize(
+      instruction,
+      170
+    );
+
+  doc.text(
+    instructionLines,
+    20,
+    168
+  );
+
+
+  doc.setFontSize(8);
+
+  doc.text(
+    "T.I.C. I - Tarea 3",
+    105,
+    290,
+    {
+      align: "center"
+    }
+  );
+
+
+  /* =========================================
+     PÁGINA 2
+     TRABAJO DEL ALUMNO
+  ========================================= */
+
+  doc.addPage();
+
+
+  doc.setFontSize(18);
+
+  doc.text(
+    "Trabajo realizado",
+    105,
+    20,
+    {
+      align: "center"
+    }
+  );
+
+
+  doc.setFontSize(14);
+
+  doc.text(
+    exercise.title,
+    15,
+    35
+  );
+
+
+  /* =========================================
+     TABLA DE DATOS
+  ========================================= */
+
+  doc.setFontSize(13);
+
+  doc.text(
+    "Datos ingresados",
+    15,
+    48
+  );
+
+
+  const cells =
+    document.querySelectorAll(
+      ".spreadsheet-cell"
+    );
+
+
+  const rows = {};
+
+
+  cells.forEach(cell => {
+
+    const row =
+      Number(cell.dataset.row);
+
+    const col =
+      Number(cell.dataset.col);
+
+
+    if (!rows[row]) {
+
+      rows[row] = [];
+
+    }
+
+
+    rows[row][col] =
+      cell.value;
+
+  });
+
+
+  let tableY = 57;
+
+  const cellWidth = 42;
+
+  const cellHeight = 8;
+
+
+  doc.setFontSize(9);
+
+
+  Object.keys(rows).forEach(
+    rowNumber => {
+
+      let x = 15;
+
+
+      rows[rowNumber].forEach(
+        value => {
+
+          doc.rect(
+            x,
+            tableY,
+            cellWidth,
+            cellHeight
+          );
+
+
+          doc.text(
+            String(value || ""),
+            x + 2,
+            tableY + 5
+          );
+
+
+          x += cellWidth;
+
+        }
+      );
+
+
+      tableY += cellHeight;
+
+    }
+  );
+
+
+  /* =========================================
+     FÓRMULA
+  ========================================= */
+
+  tableY += 10;
+
+
+  doc.setFontSize(13);
+
+  doc.text(
+    "Fórmula utilizada",
+    15,
+    tableY
+  );
+
+
+  tableY += 7;
+
+
+  doc.setFontSize(10);
+
+  const formula =
+    formulaInput.value || "No se ingresó fórmula.";
+
+
+  doc.text(
+    formula,
+    15,
+    tableY
+  );
+
+
+  /* =========================================
+     RESULTADO
+  ========================================= */
+
+  tableY += 12;
+
+
+  doc.setFontSize(13);
+
+  doc.text(
+    "Resultado",
+    15,
+    tableY
+  );
+
+
+  tableY += 7;
+
+
+  doc.setFontSize(11);
+
+  doc.text(
+    formulaResult.textContent || "-",
+    15,
+    tableY
+  );
+
+
+  /* =========================================
+     GRÁFICO
+  ========================================= */
+
+  if (
+    spreadsheetCanvas &&
+    spreadsheetCanvas.width > 0 &&
+    spreadsheetCanvas.height > 0
+  ) {
+
+    tableY += 15;
+
+
+    doc.setFontSize(13);
+
+    doc.text(
+      "Gráfico generado",
+      15,
+      tableY
+    );
+
+
+    tableY += 5;
+
+
+    const chartImage =
+      spreadsheetCanvas.toDataURL(
+        "image/png"
+      );
+
+
+    doc.addImage(
+      chartImage,
+      "PNG",
+      15,
+      tableY,
+      180,
+      100
+    );
+
+  }
+
+
+  /* =========================================
+     PIE DE PÁGINA
+  ========================================= */
+
+  doc.setFontSize(8);
+
+  doc.text(
+    "T.I.C. I - Tarea 3",
+    105,
+    290,
+    {
+      align: "center"
+    }
+  );
+
+
+  /* =========================================
+     GUARDAR PDF
+  ========================================= */
+
+  const fileName =
+    `Tarea_3_Ejercicio_${currentSpreadsheetExercise + 1}.pdf`;
+
+
+  doc.save(fileName);
+
+}
+
+
+
+function getColumnName(number) {
+
+  let name = "";
+
+  while (number > 0) {
+
+    const remainder =
+      (number - 1) % 26;
+
+    name =
+      String.fromCharCode(
+        65 + remainder
+      ) + name;
+
+    number =
+      Math.floor(
+        (number - 1) / 26
+      );
+
+  }
+
+  return name;
+
+}
+
+clearSheetBtn.addEventListener(
   "click",
   () => {
 
-    showIntegrativeExercises(
+    createSpreadsheet();
+
+    formulaInput.value = "";
+
+    formulaResult.textContent = "-";
+
+  }
+);
+
+//FORMULAS
+
+calculateFormulaBtn.addEventListener(
+  "click",
+  applySpreadsheetFormula
+);
+
+function applySpreadsheetFormula() {
+
+  const formula =
+    formulaInput.value.trim();
+
+  if (!formula) {
+
+    formulaResult.textContent =
+      "Escribe una fórmula";
+
+    return;
+
+  }
+
+  try {
+
+    const result =
+      calculateFormula(formula);
+
+    formulaResult.textContent =
+      result;
+
+  } catch (error) {
+
+    formulaResult.textContent =
+      "❌ Fórmula no válida";
+
+    console.error(error);
+
+  }
+
+}
+
+
+function calculateFormula(formula) {
+
+  let expression =
+    formula
+      .toUpperCase()
+      .trim();
+
+
+  if (expression.startsWith("=")) {
+
+    expression =
+      expression.substring(1);
+
+  }
+
+
+  // =========================================
+  // SI
+  // =========================================
+
+  if (expression.startsWith("SI(")) {
+
+    return calculateSI(expression);
+
+  }
+
+
+  // =========================================
+  // SUMA
+  // =========================================
+
+  if (expression.startsWith("SUMA(")) {
+
+    const values =
+      getRangeValues(expression);
+
+    return values.reduce(
+      (total, value) =>
+        total + value,
+      0
+    );
+
+  }
+
+
+  // =========================================
+  // PROMEDIO
+  // =========================================
+
+  if (expression.startsWith("PROMEDIO(")) {
+
+    const values =
+      getRangeValues(expression);
+
+    if (values.length === 0) {
+
+      return 0;
+
+    }
+
+    return (
+      values.reduce(
+        (a, b) => a + b,
+        0
+      ) / values.length
+    );
+
+  }
+
+
+  // =========================================
+  // MIN
+  // =========================================
+
+  if (expression.startsWith("MIN(")) {
+
+    const values =
+      getRangeValues(expression);
+
+    return Math.min(...values);
+
+  }
+
+
+  // =========================================
+  // MAX
+  // =========================================
+
+  if (expression.startsWith("MAX(")) {
+
+    const values =
+      getRangeValues(expression);
+
+    return Math.max(...values);
+
+  }
+
+
+  // =========================================
+  // OPERACIONES
+  // =========================================
+
+  expression =
+    expression.replace(
+      /([A-Z]+)(\d+)/g,
+      (_, column, row) => {
+
+        return getCellValue(
+          column,
+          Number(row)
+        );
+
+      }
+    );
+
+
+  if (
+    /^[0-9+\-*/().]+$/.test(
+      expression
+    )
+  ) {
+
+    return Function(
+      `"use strict"; return (${expression})`
+    )();
+
+  }
+
+
+  throw new Error(
+    "Fórmula no reconocida"
+  );
+
+}
+
+// FUNCIÓN SI 
+
+function calculateSI(expression) {
+
+  const inside =
+    expression.substring(
+      3,
+      expression.length - 1
+    );
+
+
+  const parts =
+    splitFormulaArguments(
+      inside
+    );
+
+
+  if (parts.length !== 3) {
+
+    throw new Error(
+      "La función SI necesita 3 argumentos"
+    );
+
+  }
+
+
+  const condition =
+    evaluateCondition(
+      parts[0]
+    );
+
+
+  if (condition) {
+
+    return evaluateFormulaValue(
+      parts[1]
+    );
+
+  }
+
+
+  return evaluateFormulaValue(
+    parts[2]
+  );
+
+}
+
+// SISTEMA DE CONDICIONES 
+
+function evaluateCondition(condition) {
+
+  condition =
+    condition.trim();
+
+
+  // Y
+
+  if (
+    condition.startsWith("Y(")
+  ) {
+
+    const inside =
+      condition.substring(
+        2,
+        condition.length - 1
+      );
+
+    const parts =
+      splitFormulaArguments(
+        inside
+      );
+
+    return parts.every(
+      part =>
+        evaluateCondition(part)
+    );
+
+  }
+
+
+  // O
+
+  if (
+    condition.startsWith("O(")
+  ) {
+
+    const inside =
+      condition.substring(
+        2,
+        condition.length - 1
+      );
+
+    const parts =
+      splitFormulaArguments(
+        inside
+      );
+
+    return parts.some(
+      part =>
+        evaluateCondition(part)
+    );
+
+  }
+
+
+  // Convertir referencias de celdas
+
+  condition =
+    condition.replace(
+      /([A-Z]+)(\d+)/g,
+      (_, column, row) => {
+
+        return getCellValue(
+          column,
+          Number(row)
+        );
+
+      }
+    );
+
+
+  if (
+    condition.includes(">=")
+  ) {
+
+    const [a, b] =
+      condition.split(">=");
+
+    return (
+      Number(a) >= Number(b)
+    );
+
+  }
+
+
+  if (
+    condition.includes("<=")
+  ) {
+
+    const [a, b] =
+      condition.split("<=");
+
+    return (
+      Number(a) <= Number(b)
+    );
+
+  }
+
+
+  if (
+    condition.includes("<>")
+  ) {
+
+    const [a, b] =
+      condition.split("<>");
+
+    return (
+      Number(a) !== Number(b)
+    );
+
+  }
+
+
+  if (
+    condition.includes("=")
+  ) {
+
+    const [a, b] =
+      condition.split("=");
+
+    return (
+      Number(a) === Number(b)
+    );
+
+  }
+
+
+  if (
+    condition.includes(">")
+  ) {
+
+    const [a, b] =
+      condition.split(">");
+
+    return (
+      Number(a) > Number(b)
+    );
+
+  }
+
+
+  if (
+    condition.includes("<")
+  ) {
+
+    const [a, b] =
+      condition.split("<");
+
+    return (
+      Number(a) < Number(b)
+    );
+
+  }
+
+
+  return false;
+
+}
+
+// ARGUMENTOS DE FUNCIONES 
+
+function splitFormulaArguments(text) {
+
+  const parts = [];
+
+  let current = "";
+
+  let level = 0;
+
+
+  for (
+    let i = 0;
+    i < text.length;
+    i++
+  ) {
+
+    const char =
+      text[i];
+
+
+    if (char === "(") {
+
+      level++;
+
+    }
+
+
+    if (char === ")") {
+
+      level--;
+
+    }
+
+
+    if (
+      char === ";" &&
+      level === 0
+    ) {
+
+      parts.push(
+        current.trim()
+      );
+
+      current = "";
+
+    }
+
+    else {
+
+      current += char;
+
+    }
+
+  }
+
+
+  if (current.trim()) {
+
+    parts.push(
+      current.trim()
+    );
+
+  }
+
+
+  return parts;
+
+}
+
+// DEVOLVER TEXTO 
+
+function evaluateFormulaValue(value) {
+
+  value =
+    value.trim();
+
+
+  // Texto
+
+  if (
+    value.startsWith('"') &&
+    value.endsWith('"')
+  ) {
+
+    return value.substring(
+      1,
+      value.length - 1
+    );
+
+  }
+
+
+  // Si es otra función
+
+  if (
+    value.startsWith("SI(")
+  ) {
+
+    return calculateSI(
+      value
+    );
+
+  }
+
+
+  // Si es una celda
+
+  const cellMatch =
+    value.match(
+      /^([A-Z]+)(\d+)$/
+    );
+
+
+  if (cellMatch) {
+
+    return getCellValue(
+      cellMatch[1],
+      Number(cellMatch[2])
+    );
+
+  }
+
+
+  // Número
+
+  const number =
+    Number(value);
+
+
+  if (!isNaN(number)) {
+
+    return number;
+
+  }
+
+
+  return value;
+
+}
+
+
+
+
+function getCellValue(
+  column,
+  row
+) {
+
+  const columnNumber =
+    column
+      .split("")
+      .reduce(
+        (total, letter) =>
+          total * 26 +
+          letter.charCodeAt(0) -
+          64,
+        0
+      );
+
+  const cell =
+    document.querySelector(
+      `.spreadsheet-cell[data-row="${row}"][data-col="${columnNumber - 1}"]`
+    );
+
+  if (!cell) {
+
+    return 0;
+
+  }
+
+  const value =
+    parseFloat(
+      cell.value
+    );
+
+  return isNaN(value)
+    ? 0
+    : value;
+
+}
+
+function getSelectedSpreadsheetRange() {
+
+    if (
+        !selectedSpreadsheetCells ||
+        selectedSpreadsheetCells.length === 0
+    ) {
+        return null;
+    }
+
+    const rows =
+        selectedSpreadsheetCells.map(cell =>
+            Number(cell.dataset.row)
+        );
+
+    const cols =
+        selectedSpreadsheetCells.map(cell =>
+            Number(cell.dataset.col)
+        );
+
+    const minRow = Math.min(...rows);
+    const maxRow = Math.max(...rows);
+
+    const minCol = Math.min(...cols);
+    const maxCol = Math.max(...cols);
+
+const startColumn =
+    getColumnName(minCol + 1);
+
+const endColumn =
+    getColumnName(maxCol + 1);
+
+    return `${startColumn}${minRow}:${endColumn}${maxRow}`;
+}
+
+function getRangeValues(expression) {
+
+    const match =
+        expression.match(
+            /([A-Z]+)(\d+):([A-Z]+)(\d+)/
+        );
+
+    if (!match) {
+        return [];
+    }
+
+    const startColumn =
+        columnToNumber(match[1]);
+
+    const startRow =
+        Number(match[2]);
+
+    const endColumn =
+        columnToNumber(match[3]);
+
+    const endRow =
+        Number(match[4]);
+
+    const values = [];
+
+    for (
+        let row = startRow;
+        row <= endRow;
+        row++
+    ) {
+
+        for (
+            let col = startColumn;
+            col <= endColumn;
+            col++
+        ) {
+
+            const value =
+                getCellValue(
+                    getColumnName(col),
+                    row
+                );
+
+            values.push(value);
+        }
+    }
+
+    return values;
+}
+
+ function columnToNumber(column) {
+
+  return column
+    .split("")
+    .reduce(
+      (total, letter) =>
+        total * 26 +
+        letter.charCodeAt(0) -
+        64,
+      0
+    );
+
+ }
+
+ document
+  .querySelectorAll(
+    ".formula-buttons button"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const formula =
+          button.dataset.formula;
+
+       if (formula === "SUMA") {
+
+    const range =
+        getSelectedSpreadsheetRange();
+
+    if (!range) {
+        alert("Primero selecciona un rango de celdas.");
+        return;
+    }
+
+    formulaInput.value =
+        `=SUMA(${range})`;
+
+}
+
+else if (formula === "PROMEDIO") {
+
+    const range =
+        getSelectedSpreadsheetRange();
+
+    if (!range) {
+        alert("Primero selecciona un rango de celdas.");
+        return;
+    }
+
+    formulaInput.value =
+        `=PROMEDIO(${range})`;
+
+}
+
+else if (formula === "MIN") {
+
+    const range =
+        getSelectedSpreadsheetRange();
+
+    if (!range) {
+        alert("Primero selecciona un rango de celdas.");
+        return;
+    }
+
+    formulaInput.value =
+        `=MIN(${range})`;
+
+}
+
+else if (formula === "MAX") {
+
+    const range =
+        getSelectedSpreadsheetRange();
+
+    if (!range) {
+        alert("Primero selecciona un rango de celdas.");
+        return;
+    }
+
+    formulaInput.value =
+        `=MAX(${range})`;
+
+}
+
+        else if (formula === "SI") {
+
+  formulaInput.value =
+    '=SI(A1>=60;"APROBADO";"REPROBADO")';
+
+ }
+
+else if (
+  formula === "SI_ANIDADO"
+) {
+
+  formulaInput.value =
+    '=SI(A1>=80;"EXCELENTE";SI(A1>=60;"APROBADO";"REPROBADO"))';
+
+}
+
+        else {
+
+          formulaInput.value =
+            "=A1+B1";
+
+        }
+
+      }
+    );
+
+  });
+
+
+  spreadsheetBackBtn.addEventListener(
+  "click",
+  () => {
+
+    spreadsheetSection.classList.add(
+      "hidden"
+    );
+
+    showPracticalExercises(
       currentSubject
     );
 
   }
 );
 
-// volver
 
-integrativeBackBtn.addEventListener(
+
+
+/* =====================================================
+   GRÁFICOS
+===================================================== */
+
+barChartBtn.addEventListener(
   "click",
   () => {
 
-    integrativeSection.classList.add(
-      "hidden"
-    );
-
-    taskMenuSection.classList.remove(
-      "hidden"
-    );
+    createSpreadsheetChart("bar");
 
   }
 );
+
+
+lineChartBtn.addEventListener(
+  "click",
+  () => {
+
+    createSpreadsheetChart("line");
+
+  }
+);
+
+
+pieChartBtn.addEventListener(
+  "click",
+  () => {
+
+    createSpreadsheetChart("pie");
+
+  }
+);
+
+
+function createSpreadsheetChart(type) {
+
+    const labels = [];
+    const values = [];
+
+    // Obtener las filas de la hoja
+    const rows = document.querySelectorAll(
+        "#spreadsheetTable tbody tr"
+    );
+
+    rows.forEach(row => {
+
+        const cells = row.querySelectorAll(
+            ".spreadsheet-cell"
+        );
+
+        // Necesitamos al menos columna A y B
+        if (cells.length < 2) {
+            return;
+        }
+
+        const label = cells[0].value.trim();
+
+        const value = parseFloat(
+            cells[1].value
+        );
+
+        // Ignorar filas vacías o encabezados
+        if (
+            label !== "" &&
+            !isNaN(value)
+        ) {
+
+            labels.push(label);
+            values.push(value);
+
+        }
+
+    });
+
+    // Verificar que haya datos
+    if (values.length === 0) {
+
+        alert(
+            "Ingresa una etiqueta en la columna A y un número en la columna B."
+        );
+
+        return;
+    }
+
+    // Eliminar gráfico anterior
+    if (spreadsheetChartInstance) {
+
+        spreadsheetChartInstance.destroy();
+
+        spreadsheetChartInstance = null;
+    }
+
+    // Crear nuevo gráfico
+    spreadsheetChartInstance =
+        new Chart(
+            spreadsheetCanvas,
+            {
+
+                type: type,
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [
+
+                        {
+                            label: "Ventas",
+                            data: values
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    animation: false,
+
+                    resizeDelay: 100
+
+                }
+
+            }
+        );
+}
+
+
 
 /*==============================
 EJERCICIOS INTEGRADORES AUTO
@@ -1806,10 +3703,14 @@ function showIntegrativeExercises(subject) {
 
 // SALVAR RESPUESTAS 
 
-saveIntegrativeBtn.addEventListener(
-  "click",
-  saveIntegrativeAnswers
-);
+if (saveIntegrativeBtn) {
+
+  saveIntegrativeBtn.addEventListener(
+    "click",
+    saveIntegrativeAnswers
+  );
+
+}
 
 function saveIntegrativeAnswers() {
 
@@ -1967,6 +3868,7 @@ function restoreIntegrativeAnswers(subject) {
   );
 
 }
+
 
 // pdf integrador
 
@@ -2698,11 +4600,6 @@ async function generateIntegrativePDF() {
 
 }
 
-
-
-
-
-
 /* =====================================================
    SELECCIONAR UNA TAREA
 ===================================================== */
@@ -2751,18 +4648,32 @@ contentBtn.addEventListener("click", () => {
 
 exerciseBtn.addEventListener("click", () => {
 
-  if(!exerciseStatus[currentSubject]){
+  console.log("BOTÓN EJERCICIOS");
+  console.log("currentSubject:", currentSubject);
+
+  if (!exerciseStatus[currentSubject]) {
+
     alert(
-      "Los ejercicios de esta actividad aún no están Habilidatos."
+      "Los ejercicios de esta actividad aún no están habilitados."
     );
+
     return;
   }
-  startQuiz(
-    currentSubject
-  );
+
+  if (currentSubject === "tarea_3") {
+
+    console.log("ABRIENDO EJERCICIOS PRÁCTICOS");
+
+    showPracticalExercises("tarea_3");
+
+    return;
+  }
+
+  console.log("ABRIENDO EJERCICIOS NORMALES");
+
+  startQuiz(currentSubject);
 
 });
-
 
 
 /* =====================================================
@@ -3120,7 +5031,121 @@ function showContent(subject) {
 
 }
 
+/* =====================================================
+   MOSTRAR EJERCICIOS PRÁCTICOS - TAREA 3
+===================================================== */
 
+function showPracticalExercises(subject) {
+
+  const practicalExercises =
+    exercises[subject];
+
+  if (
+    !practicalExercises ||
+    practicalExercises.length === 0
+  ) {
+
+    alert(
+      "No existen ejercicios prácticos para esta tarea."
+    );
+
+    return;
+  }
+
+
+  // Ocultar secciones
+
+  dashboardSection.classList.add("hidden");
+
+  taskMenuSection.classList.add("hidden");
+
+  contentSection.classList.add("hidden");
+
+  quizSection.classList.add("hidden");
+
+  resultSection.classList.add("hidden");
+
+
+  // Mostrar sección práctica
+
+  const practicalSection =
+    document.getElementById(
+      "practicalExercisesSection"
+    );
+
+  practicalSection.classList.remove("hidden");
+
+
+  // Título
+
+  document.getElementById(
+    "practicalExercisesSubject"
+  ).textContent =
+    subjectNames[subject];
+
+
+  // Contenedor
+
+  const container =
+    document.getElementById(
+      "practicalExercisesContainer"
+    );
+
+  container.innerHTML = "";
+
+
+  // Crear ejercicios
+
+  practicalExercises.forEach(
+    (exercise, index) => {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "practical-exercise-card";
+
+
+      card.innerHTML = `
+
+        <h3>
+          ${exercise.title}
+        </h3>
+
+        <div class="practical-exercise-content">
+
+          ${exercise.content}
+
+        </div>
+
+      `;
+
+
+      container.appendChild(card);
+
+    }
+  );
+
+}
+
+document
+  .getElementById("practicalExercisesBackBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+      document
+        .getElementById(
+          "practicalExercisesSection"
+        )
+        .classList.add("hidden");
+
+      taskMenuSection
+        .classList
+        .remove("hidden");
+
+    }
+  );
 
 /* =====================================================
    INICIAR EJERCICIO
@@ -3684,39 +5709,6 @@ function renderHistory() {
     const doc = new jsPDF();
 
     let y = 20;
-
-
-    
-  
-  
-  
-  /* =========================
-     TÍTULO
-  ========================= */
-/*
-  doc.setFontSize(18);
-
-  doc.text(
-    "T.I.C. 4to Diseno",
-    20,
-    y
-  );
-
-
-  y += 9;
-
-
-  doc.setFontSize(14);
-
-  doc.text(
-    "Reporte de ejercicios",
-    20,
-    y
-  );
-
-  y += 12;
-  */
-
  
 
   // Colegio 
@@ -3860,23 +5852,6 @@ try {
   doc.setFontSize(11);
 
 
- //doc.text(
-   // `Alumno: ${attempt.name}`,
-    //20,
-    //y
- // );
-
-  //y += 7;
-
-
-  //doc.text(
-    //`Grado: ${attempt.grade}`,
-    //20,
-    //y
-  //);
-
-
- // y += 7;
 
 
   doc.text(
@@ -4173,8 +6148,484 @@ function restoreSession() {
 
   }
 
+  if (createChartBtn) {
+
+  createChartBtn.onclick = function () {
+
+    createSpreadsheetChart("bar");
+
+  };
+
 }
-  
+
+
+if (pieChartBtn) {
+
+  pieChartBtn.onclick = function () {
+
+    createSpreadsheetChart("pie");
+
+  };
+
+}
+
+}
+
+/* =====================================================
+   AGREGAR FILA
+===================================================== */
+
+addRowBtn.addEventListener(
+    "click",
+    () => {
+
+        const data = [];
+
+        document
+            .querySelectorAll(".spreadsheet-cell")
+            .forEach(cell => {
+
+                data.push({
+                    row: Number(cell.dataset.row),
+                    col: Number(cell.dataset.col),
+                    value: cell.value
+                });
+
+            });
+
+        spreadsheetRows++;
+
+        createSpreadsheet();
+
+        document
+            .querySelectorAll(".spreadsheet-cell")
+            .forEach(cell => {
+
+                const row =
+                    Number(cell.dataset.row);
+
+                const col =
+                    Number(cell.dataset.col);
+
+                const saved =
+                    data.find(item =>
+                        item.row === row &&
+                        item.col === col
+                    );
+
+                if (saved) {
+                    cell.value = saved.value;
+                }
+
+            });
+
+    }
+);
+
+
+/* =====================================================
+   AGREGAR COLUMNA
+===================================================== */
+
+addColumnBtn.addEventListener(
+    "click",
+    () => {
+
+        const data = [];
+
+        document
+            .querySelectorAll(".spreadsheet-cell")
+            .forEach(cell => {
+
+                data.push({
+                    row: Number(cell.dataset.row),
+                    col: Number(cell.dataset.col),
+                    value: cell.value
+                });
+
+            });
+
+        spreadsheetColumns++;
+
+        createSpreadsheet();
+
+        document
+            .querySelectorAll(".spreadsheet-cell")
+            .forEach(cell => {
+
+                const row =
+                    Number(cell.dataset.row);
+
+                const col =
+                    Number(cell.dataset.col);
+
+                const saved =
+                    data.find(item =>
+                        item.row === row &&
+                        item.col === col
+                    );
+
+                if (saved) {
+                    cell.value = saved.value;
+                }
+
+            });
+
+    }
+);
+
+/* =====================================================
+   SELECCIÓN DE CELDAS COMO EXCEL
+===================================================== */
+
+let cellSelectionStart = null;
+let isSelectingCells = false;
+let selectionStarted = false;
+let selectedSpreadsheetCells = [];
+
+
+/* =====================================================
+   OBTENER CELDA BAJO EL MOUSE
+===================================================== */
+
+function getSpreadsheetCellAtPoint(x, y) {
+
+    const element =
+        document.elementFromPoint(x, y);
+
+    if (!element) {
+        return null;
+    }
+
+    return element.closest(".spreadsheet-td");
+}
+
+
+/* =====================================================
+   LIMPIAR SELECCIÓN
+===================================================== */
+
+function clearSpreadsheetSelection() {
+
+    document
+        .querySelectorAll(".spreadsheet-td.selected")
+        .forEach(td => {
+
+            td.classList.remove("selected");
+
+        });
+
+    selectedSpreadsheetCells = [];
+}
+
+
+/* =====================================================
+   SELECCIONAR RANGO
+===================================================== */
+
+function selectSpreadsheetRange(
+    startCell,
+    endCell
+) {
+
+    if (!startCell || !endCell) {
+        return;
+    }
+
+    clearSpreadsheetSelection();
+
+
+    const startRow =
+        Number(startCell.dataset.row);
+
+    const startCol =
+        Number(startCell.dataset.col);
+
+
+    const endRow =
+        Number(endCell.dataset.row);
+
+    const endCol =
+        Number(endCell.dataset.col);
+
+
+    const minRow =
+        Math.min(startRow, endRow);
+
+    const maxRow =
+        Math.max(startRow, endRow);
+
+
+    const minCol =
+        Math.min(startCol, endCol);
+
+    const maxCol =
+        Math.max(startCol, endCol);
+
+
+    document
+        .querySelectorAll(".spreadsheet-td")
+        .forEach(td => {
+
+            const row =
+                Number(td.dataset.row);
+
+            const col =
+                Number(td.dataset.col);
+
+
+            if (
+                row >= minRow &&
+                row <= maxRow &&
+                col >= minCol &&
+                col <= maxCol
+            ) {
+
+                td.classList.add("selected");
+
+
+                const input =
+                    td.querySelector(
+                        ".spreadsheet-cell"
+                    );
+
+
+                if (input) {
+
+                    selectedSpreadsheetCells.push(
+                        input
+                    );
+
+                }
+
+            }
+
+        });
+
+}
+
+
+/* =====================================================
+   COMENZAR CON EL MOUSE
+===================================================== */
+
+document.addEventListener(
+    "mousedown",
+    function(event) {
+
+        const cell =
+            event.target.closest(
+                ".spreadsheet-td"
+            );
+
+
+        if (!cell) {
+            return;
+        }
+
+
+        cellSelectionStart =
+            cell;
+
+        isSelectingCells =
+            true;
+
+        selectionStarted =
+            false;
+
+    },
+    true
+);
+
+
+/* =====================================================
+   ARRASTRAR
+===================================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (
+            !isSelectingCells ||
+            !cellSelectionStart
+        ) {
+            return;
+        }
+
+
+        // El botón izquierdo debe seguir presionado
+        if (event.buttons !== 1) {
+            return;
+        }
+
+
+        const currentCell =
+            getSpreadsheetCellAtPoint(
+                event.clientX,
+                event.clientY
+            );
+
+
+        if (!currentCell) {
+            return;
+        }
+
+
+        // Ya hubo movimiento:
+        // ahora sí estamos haciendo una selección
+        selectionStarted =
+            true;
+
+
+        selectSpreadsheetRange(
+            cellSelectionStart,
+            currentCell
+        );
+
+
+        // Evita seleccionar texto
+        // SOLO cuando estamos arrastrando
+        event.preventDefault();
+
+    },
+    true
+);
+
+
+/* =====================================================
+   TERMINAR
+===================================================== */
+
+document.addEventListener(
+    "mouseup",
+    function() {
+
+        isSelectingCells =
+            false;
+
+        cellSelectionStart =
+            null;
+
+        selectionStarted =
+            false;
+
+    },
+    true
+);
+
+
+/* =====================================================
+   EVITAR SELECCIÓN DE TEXTO DURANTE ARRASTRE
+===================================================== */
+
+document.addEventListener(
+    "selectstart",
+    function(event) {
+
+        if (isSelectingCells) {
+
+            event.preventDefault();
+
+        }
+
+    },
+    true
+);
+
+
+/* =====================================================
+   MOVERSE ENTRE CELDAS CON LAS FLECHAS
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const currentCell =
+            event.target.closest(
+                ".spreadsheet-cell"
+            );
+
+        if (!currentCell) {
+            return;
+        }
+
+
+        let row =
+            Number(currentCell.dataset.row);
+
+        let col =
+            Number(currentCell.dataset.col);
+
+
+        let newRow = row;
+        let newCol = col;
+
+
+        switch (event.key) {
+
+            case "ArrowUp":
+                newRow--;
+                break;
+
+            case "ArrowDown":
+                newRow++;
+                break;
+
+            case "ArrowLeft":
+                newCol--;
+                break;
+
+            case "ArrowRight":
+                newCol++;
+                break;
+
+            default:
+                return;
+
+        }
+
+
+        // Evitar salir de la tabla
+        if (
+            newRow < 1 ||
+            newRow > spreadsheetRows ||
+            newCol < 0 ||
+            newCol >= spreadsheetColumns
+        ) {
+            return;
+        }
+
+
+        const nextCell =
+            document.querySelector(
+                `.spreadsheet-cell[data-row="${newRow}"][data-col="${newCol}"]`
+            );
+
+
+        if (!nextCell) {
+            return;
+        }
+
+
+        event.preventDefault();
+
+        nextCell.focus();
+
+        // Colocar el cursor al final del contenido
+        const length =
+            nextCell.value.length;
+
+        nextCell.setSelectionRange(
+            length,
+            length
+        );
+
+    },
+    true
+);
 
 restoreSession();
+
 
